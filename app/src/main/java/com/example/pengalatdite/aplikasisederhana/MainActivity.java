@@ -1,9 +1,10 @@
 package com.example.pengalatdite.aplikasisederhana;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,12 +14,14 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private Adapter mAdapter;
 
+    private ViewMVC viewMVC;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recylerView);
+        viewMVC = new ViewMVCImpl(LayoutInflater.from(this), null);
 
         mAdapter = new Adapter(listBerita);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -29,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void berita(){
+    private void berita() {
         DataNews dataNews = new DataNews("Lamborghini Aventador Direcall karena Kerusakan Kemudi", "Iron Man", R.drawable.lamborghini, R.drawable.ironman);
         listBerita.add(dataNews);
 
