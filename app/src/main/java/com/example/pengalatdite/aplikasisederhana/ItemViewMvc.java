@@ -2,10 +2,8 @@ package com.example.pengalatdite.aplikasisederhana;
 
 import android.view.View;
 
-import java.util.List;
-
-public interface ViewMVC {
+public interface ItemViewMvc {
     View getRootView();
 
-    void setDataNews(List<DataNews> dataNews);
+    void bindData(DataNews dataNews, String position);
 }
