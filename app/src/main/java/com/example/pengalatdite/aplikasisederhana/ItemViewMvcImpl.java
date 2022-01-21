@@ -1,7 +1,6 @@
 package com.example.pengalatdite.aplikasisederhana;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -10,9 +9,7 @@ import com.bumptech.glide.Glide;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class ItemViewMvcImpl implements ItemViewMvc {
-
-    private View rootView;
+public class ItemViewMvcImpl extends BaseViewMvc implements ItemViewMvc {
 
     private final TextView deskripsiBerita;
     private final TextView namaPenulis;
@@ -28,19 +25,6 @@ public class ItemViewMvcImpl implements ItemViewMvc {
         namaPenulis = findViewById(R.id.authorName);
         gambarBerita = findViewById(R.id.thumbnail);
         gambarPenulis = findViewById(R.id.circleImage);
-    }
-
-    @Override
-    public View getRootView() {
-        return rootView;
-    }
-
-    protected void setRootView(View rootView) {
-        this.rootView = rootView;
-    }
-
-    protected <T extends View> T findViewById(int id) {
-        return getRootView().findViewById(id);
     }
 
     @Override

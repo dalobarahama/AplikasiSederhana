@@ -10,7 +10,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private List<DataNews> listBerita = new ArrayList<>();
 
-    private ViewMVC viewMVC;
+    private MainActivityViewMvc mainActivityViewMVC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,10 +18,10 @@ public class MainActivity extends AppCompatActivity {
 
         berita();
 
-        viewMVC = new ViewMVCImpl(LayoutInflater.from(this), null);
-        viewMVC.setDataNews(listBerita);
+        mainActivityViewMVC = new MainActivityViewMvcImpl(LayoutInflater.from(this), null);
+        mainActivityViewMVC.setDataNews(listBerita);
 
-        setContentView(viewMVC.getRootView());
+        setContentView(mainActivityViewMVC.getRootView());
     }
 
     private void berita() {

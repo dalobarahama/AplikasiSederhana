@@ -13,6 +13,16 @@ public class Adapter extends RecyclerView.Adapter<Adapter.NewsViewHolder> {
     private static final String TAG = "RecyclerViewAdapter";
     private List<DataNews> listBerita;
 
+    public static class NewsViewHolder extends RecyclerView.ViewHolder {
+
+        private final ItemViewMvc itemViewMvc;
+
+        public NewsViewHolder(ItemViewMvc viewMvc) {
+            super(viewMvc.getRootView());
+            itemViewMvc = viewMvc;
+        }
+    }
+
     public void bindNews(List<DataNews> listBerita) {
         this.listBerita = new ArrayList<>(listBerita);
         notifyDataSetChanged();
@@ -37,13 +47,4 @@ public class Adapter extends RecyclerView.Adapter<Adapter.NewsViewHolder> {
         return listBerita.size();
     }
 
-    public static class NewsViewHolder extends RecyclerView.ViewHolder {
-
-        private final ItemViewMvc itemViewMvc;
-
-        public NewsViewHolder(ItemViewMvc viewMvc) {
-            super(viewMvc.getRootView());
-            itemViewMvc = viewMvc;
-        }
-    }
 }
