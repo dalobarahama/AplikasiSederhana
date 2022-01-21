@@ -1,16 +1,19 @@
-package com.example.pengalatdite.aplikasisederhana;
+package com.example.pengalatdite.aplikasisederhana.screen.newslist;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 
+import com.example.pengalatdite.aplikasisederhana.data.DataNews;
+import com.example.pengalatdite.aplikasisederhana.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class NewsActivity extends AppCompatActivity {
     private List<DataNews> listBerita = new ArrayList<>();
 
-    private MainActivityViewMvc mainActivityViewMVC;
+    private NewsListViewMvc newsListViewMVC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,10 +21,10 @@ public class MainActivity extends AppCompatActivity {
 
         berita();
 
-        mainActivityViewMVC = new MainActivityViewMvcImpl(LayoutInflater.from(this), null);
-        mainActivityViewMVC.setDataNews(listBerita);
+        newsListViewMVC = new NewsListViewMvcImpl(LayoutInflater.from(this), null);
+        newsListViewMVC.setDataNews(listBerita);
 
-        setContentView(mainActivityViewMVC.getRootView());
+        setContentView(newsListViewMVC.getRootView());
     }
 
     private void berita() {

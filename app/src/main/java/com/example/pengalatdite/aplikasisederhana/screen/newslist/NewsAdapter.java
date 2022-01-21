@@ -1,4 +1,4 @@
-package com.example.pengalatdite.aplikasisederhana;
+package com.example.pengalatdite.aplikasisederhana.screen.newslist;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -6,10 +6,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import com.example.pengalatdite.aplikasisederhana.data.DataNews;
+import com.example.pengalatdite.aplikasisederhana.screen.newslist.newslistitem.ItemViewMvc;
+import com.example.pengalatdite.aplikasisederhana.screen.newslist.newslistitem.ItemViewMvcImpl;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Adapter extends RecyclerView.Adapter<Adapter.NewsViewHolder> {
+public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder> {
     private static final String TAG = "RecyclerViewAdapter";
     private List<DataNews> listBerita;
 

@@ -1,4 +1,4 @@
-package com.example.pengalatdite.aplikasisederhana;
+package com.example.pengalatdite.aplikasisederhana.screen.newslist.newslistitem;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -6,6 +6,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.pengalatdite.aplikasisederhana.R;
+import com.example.pengalatdite.aplikasisederhana.data.DataNews;
+import com.example.pengalatdite.aplikasisederhana.screen.common.BaseViewMvc;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 

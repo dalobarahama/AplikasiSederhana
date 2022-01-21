@@ -1,4 +1,4 @@
-package com.example.pengalatdite.aplikasisederhana;
+package com.example.pengalatdite.aplikasisederhana.screen.common;
 
 import android.content.Context;
 import android.view.View;
