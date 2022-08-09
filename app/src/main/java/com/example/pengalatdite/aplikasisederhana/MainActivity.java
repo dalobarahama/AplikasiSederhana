@@ -1,26 +1,24 @@
 package com.example.pengalatdite.aplikasisederhana;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private List<DataNews> listBerita = new ArrayList<>();
-    private RecyclerView recyclerView;
-    private Adapter mAdapter;
+    private final List<DataNews> listBerita = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recylerView);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recylerView);
 
-        mAdapter = new Adapter(listBerita);
+        Adapter mAdapter = new Adapter(listBerita);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(mAdapter);
