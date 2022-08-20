@@ -1,5 +1,6 @@
 package com.example.pengalatdite.aplikasisederhana;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        Toast.makeText(this, "profile clicked", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this, ProfileActivity.class));
         return super.onOptionsItemSelected(item);
     }
 
