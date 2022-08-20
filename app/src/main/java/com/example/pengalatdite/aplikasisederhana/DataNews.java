@@ -8,6 +8,9 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class DataNews {
     public String deskripsiBerita, namaPenulis;
     public int gambarBerita;
+    public int gambarPenulis;
+    public  boolean isLiked = false;
+
 
     public DataNews(String deskripsiBerita, String namaPenulis, int gambarBerita, int gambarPenulis) {
         this.deskripsiBerita = deskripsiBerita;
@@ -16,38 +19,28 @@ public class DataNews {
         this.gambarPenulis = gambarPenulis;
     }
 
-    public String getDeskripsiBerita() {
-        return deskripsiBerita;
+    public boolean isLiked() {
+        return isLiked;
     }
 
-    public void setDeskripsiBerita(String deskripsiBerita) {
-        this.deskripsiBerita = deskripsiBerita;
+    public void setLiked(boolean liked) {
+        isLiked = liked;
+    }
+
+    public String getDeskripsiBerita() {
+        return deskripsiBerita;
     }
 
     public String getNamaPenulis() {
         return namaPenulis;
     }
 
-    public void setNamaPenulis(String namaPenulis) {
-        this.namaPenulis = namaPenulis;
-    }
-
     public int getGambarBerita() {
         return gambarBerita;
-    }
-
-    public void setGambarBerita(int gambarBerita) {
-        this.gambarBerita = gambarBerita;
     }
 
     public int getGambarPenulis() {
         return gambarPenulis;
     }
-
-    public void setGambarPenulis(int gambarPenulis) {
-        this.gambarPenulis = gambarPenulis;
-    }
-
-    public int gambarPenulis;
 
 }

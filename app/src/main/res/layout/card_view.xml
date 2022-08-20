@@ -55,8 +55,8 @@
             android:id="@+id/loveImage"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_alignBottom="@+id/thumbnail"
             android:layout_alignStart="@+id/deskripsi"
+            android:layout_alignBottom="@+id/thumbnail"
             android:scaleType="centerInside"
             android:src="@drawable/heart_outline" />
 

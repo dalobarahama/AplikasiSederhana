@@ -52,10 +52,19 @@ public class Adapter extends RecyclerView.Adapter<Adapter.NewsViewHolder> {
         holder.namaPenulis.setText(news.getNamaPenulis());
         holder.deskripsiBerita.setText(news.getDeskripsiBerita());
         holder.loveButton.setOnClickListener(view -> {
-            Glide.with(context)
-                    .asBitmap()
-                    .load(loadLikeIcon())
-                    .into(holder.loveButton);
+            if (!news.isLiked()) {
+                Glide.with(context)
+                        .asBitmap()
+                        .load(R.drawable.heart)
+                        .into(holder.loveButton);
+                news.setLiked(true);
+            } else {
+                Glide.with(context)
+                        .asBitmap()
+                        .load(R.drawable.heart_outline)
+                        .into(holder.loveButton);
+                news.setLiked(false);
+            }
         });
 
         holder.itemView.setOnClickListener(view -> Toast.makeText(holder.itemView.getContext(), "Clicked", Toast.LENGTH_SHORT).show());
@@ -68,6 +77,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.NewsViewHolder> {
     }
 
     public static class NewsViewHolder extends RecyclerView.ViewHolder {
+
         public TextView deskripsiBerita;
         public TextView namaPenulis;
         public CircleImageView gambarPenulis;
@@ -82,9 +92,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.NewsViewHolder> {
             gambarBerita = itemView.findViewById(R.id.thumbnail);
             loveButton = itemView.findViewById(R.id.loveImage);
         }
+
     }
 
-    public int loadLikeIcon(){
-        return R.drawable.heart;
+    private void loveButtonClicked(Context context, NewsViewHolder holder, int position) {
+
     }
 }
