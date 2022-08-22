@@ -1,22 +1,20 @@
 package com.example.pengalatdite.aplikasisederhana;
 
-import android.widget.ImageView;
-import android.widget.TextView;
-
-import de.hdodenhof.circleimageview.CircleImageView;
-
 public class DataNews {
-    public String deskripsiBerita, namaPenulis;
+    public String judulBerita;
+    public String namaPenulis;
+    public String deskripsiBerita;
     public int gambarBerita;
     public int gambarPenulis;
-    public  boolean isLiked = false;
+    public boolean isLiked = false;
 
 
-    public DataNews(String deskripsiBerita, String namaPenulis, int gambarBerita, int gambarPenulis) {
+    public DataNews(String judulBerita, String namaPenulis, String deskripsiBerita, int gambarBerita, int gambarPenulis) {
         this.deskripsiBerita = deskripsiBerita;
         this.namaPenulis = namaPenulis;
         this.gambarBerita = gambarBerita;
         this.gambarPenulis = gambarPenulis;
+        this.judulBerita = judulBerita;
     }
 
     public boolean isLiked() {
