@@ -9,13 +9,16 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import de.hdodenhof.circleimageview.CircleImageView
-import kotlinx.android.synthetic.main.card_view.view.authorName
-import kotlinx.android.synthetic.main.card_view.view.circleImage
-import kotlinx.android.synthetic.main.card_view.view.deskripsi
-import kotlinx.android.synthetic.main.card_view.view.thumbnail
 
 class Adapter(private val listBerita: List<DataNews>) :
     RecyclerView.Adapter<Adapter.NewsViewHolder>() {
+
+    class NewsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        var deskripsiBerita: TextView = itemView.findViewById(R.id.deskripsi)
+        var namaPenulis: TextView = itemView.findViewById(R.id.authorName)
+        var gambarPenulis: CircleImageView = itemView.findViewById(R.id.circleImage)
+        var gambarBerita: ImageView = itemView.findViewById(R.id.thumbnail)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.card_view, parent, false)
@@ -28,7 +31,7 @@ class Adapter(private val listBerita: List<DataNews>) :
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
         val context: Context = holder.itemView.context
-        val news: DataNews = listBerita.get(position)
+        val news: DataNews = listBerita[position]
 
         Glide.with(context)
             .asBitmap()
@@ -43,14 +46,5 @@ class Adapter(private val listBerita: List<DataNews>) :
         holder.deskripsiBerita.text = news.deskripsiBerita
         holder.namaPenulis.text = news.namaPenulis
     }
-
-    class NewsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var deskripsiBerita: TextView = itemView.deskripsi
-        var namaPenulis: TextView = itemView.authorName
-        var gambarPenulis: CircleImageView = itemView.circleImage
-        var gambarBerita: ImageView = itemView.thumbnail
-    }
-
-
 }
 
