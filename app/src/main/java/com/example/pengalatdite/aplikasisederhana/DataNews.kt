@@ -5,6 +5,10 @@ class DataNews(
     var namaPenulis: String,
     var gambarBerita: Int,
     var gambarPenulis: Int,
+    var dateTime: String,
+    var likes: Int = 0,
+    var comments: List<String>? = null,
+    var categories: List<String>
 )
 
 /**
