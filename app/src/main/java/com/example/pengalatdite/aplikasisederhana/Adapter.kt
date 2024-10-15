@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -21,7 +22,11 @@ class Adapter(private val listBerita: List<DataNews>) :
         var totalCommets: TextView = itemView.findViewById(R.id.totalComments)
         var dateTimes: TextView = itemView.findViewById(R.id.dateTime)
         var spacer: View = itemView.findViewById(R.id.lineSpacer)
+        var likesImage: ImageView = itemView.findViewById(R.id.loveImage)
+        var commentsImage: ImageView = itemView.findViewById(R.id.commentImage)
     }
+
+    lateinit var onClickAdapter: OnClickAdapter
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.card_view, parent, false)
@@ -58,6 +63,38 @@ class Adapter(private val listBerita: List<DataNews>) :
         } else {
             holder.spacer.visibility = View.VISIBLE
         }
+
+        holder.itemView.setOnClickListener {
+            onClickAdapter.onItemClicked()
+        }
+        holder.likesImage.setOnClickListener {
+            if (news.likes == holder.totalLikes.text.toString().toInt()) {
+                Glide.with(context)
+                    .asBitmap()
+                    .load(R.drawable.ic_launcher_background)
+                    .into(holder.likesImage)
+                holder.totalLikes.text = (news.likes + 1).toString()
+            } else {
+                Glide.with(context)
+                    .asBitmap()
+                    .load(R.drawable.heart_outline)
+                    .into(holder.likesImage)
+                holder.totalLikes.text = news.likes.toString()
+            }
+        }
+    }
+
+    override fun getItemId(position: Int): Long {
+        return super.getItemId(position)
+    }
+
+    fun setOnClickRecyclerAdapter(onClickAdapter: OnClickAdapter) {
+        this.onClickAdapter = onClickAdapter
+    }
+
+    interface OnClickAdapter {
+        fun onItemClicked()
+//        fun onLikesClicked(likes: Int, holder: NewsViewHolder)
     }
 }
 

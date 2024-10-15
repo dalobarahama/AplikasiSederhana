@@ -7,6 +7,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,7 +25,11 @@ class MainActivity : AppCompatActivity() {
 
         val adapter = Adapter(DummyData.getData())
         recyclerView.adapter = adapter
-
+        adapter.setOnClickRecyclerAdapter(object : Adapter.OnClickAdapter {
+            override fun onItemClicked() {
+                DetailActivity.newIntent(this@MainActivity)
+            }
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
