@@ -7,13 +7,14 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val newsData = DummyData.getData()
 
         val recyclerView: RecyclerView = findViewById(R.id.recylerView)
         recyclerView.layoutManager =
@@ -23,11 +24,25 @@ class MainActivity : AppCompatActivity() {
                 false
             )
 
-        val adapter = Adapter(DummyData.getData())
+        val adapter = Adapter()
+        adapter.setList(newsData)
         recyclerView.adapter = adapter
         adapter.setOnClickRecyclerAdapter(object : Adapter.OnClickAdapter {
             override fun onItemClicked() {
                 DetailActivity.newIntent(this@MainActivity)
+            }
+
+            override fun onLikesClicked(position: Int) {
+                if (!newsData[position].liked) {
+                    newsData[position].liked = true
+                    newsData[position].likes++
+                } else {
+                    newsData[position].liked = false
+                    newsData[position].likes--
+                }
+
+                adapter.clearList()
+                adapter.setList(newsData)
             }
         })
     }

@@ -14,7 +14,8 @@ object DummyData {
                 dateTime = "2024-10-03 08:30",
                 likes = 120,
                 comments = generateRandomComments(listOf("Technology", "Science")),
-                categories = listOf("Technology", "Science")
+                categories = listOf("Technology", "Science"),
+                false
             ),
             DataNews(
                 judulBerita = "Breaking News: Market Hits Record High",
@@ -25,7 +26,8 @@ object DummyData {
                 dateTime = "2024-10-01 12:45",
                 likes = 200,
                 comments = generateRandomComments(listOf("Finance", "Stock Market")),
-                categories = listOf("Finance", "Stock Market")
+                categories = listOf("Finance", "Stock Market"),
+                false
             ),
             DataNews(
                 judulBerita = "Climate Change: What You Need to Know",
@@ -36,7 +38,8 @@ object DummyData {
                 dateTime = "2024-09-29 14:20",
                 likes = 340,
                 comments = generateRandomComments(listOf("Environment", "Global Warming")),
-                categories = listOf("Environment", "Global Warming")
+                categories = listOf("Environment", "Global Warming"),
+                false
             ),
             DataNews(
                 judulBerita = "Top 10 Travel Destinations for 2024",
@@ -47,7 +50,8 @@ object DummyData {
                 dateTime = "2024-09-27 10:15",
                 likes = 450,
                 comments = generateRandomComments(listOf("Travel", "Lifestyle")),
-                categories = listOf("Travel", "Lifestyle")
+                categories = listOf("Travel", "Lifestyle"),
+                false
             ),
             DataNews(
                 judulBerita = "AI Revolution: Impact on Future Jobs",
@@ -58,7 +62,8 @@ object DummyData {
                 dateTime = "2024-10-03 15:00",
                 likes = 175,
                 comments = generateRandomComments(listOf("Technology", "Jobs")),
-                categories = listOf("Technology", "Jobs")
+                categories = listOf("Technology", "Jobs"),
+                false
             ),
             DataNews(
                 judulBerita = "New Discoveries in Space Exploration",
@@ -69,7 +74,8 @@ object DummyData {
                 dateTime = "2024-09-22 09:30",
                 likes = 220,
                 comments = generateRandomComments(listOf("Science", "Space")),
-                categories = listOf("Science", "Space")
+                categories = listOf("Science", "Space"),
+                false
             ),
             DataNews(
                 judulBerita = "Health Benefits of a Plant-Based Diet",
@@ -80,7 +86,8 @@ object DummyData {
                 dateTime = "2024-10-01 11:00",
                 likes = 300,
                 comments = generateRandomComments(listOf("Health", "Nutrition")),
-                categories = listOf("Health", "Nutrition")
+                categories = listOf("Health", "Nutrition"),
+                false
             ),
             DataNews(
                 judulBerita = "New Trends in Fashion for 2024",
@@ -91,7 +98,8 @@ object DummyData {
                 dateTime = "2024-09-28 16:30",
                 likes = 140,
                 comments = generateRandomComments(listOf("Fashion", "Lifestyle")),
-                categories = listOf("Fashion", "Lifestyle")
+                categories = listOf("Fashion", "Lifestyle"),
+                false
             ),
             DataNews(
                 judulBerita = "How to Save Money in a Tough Economy",
@@ -102,7 +110,8 @@ object DummyData {
                 dateTime = "2024-09-30 13:15",
                 likes = 280,
                 comments = generateRandomComments(listOf("Finance", "Economy")),
-                categories = listOf("Finance", "Economy")
+                categories = listOf("Finance", "Economy"),
+                false
             ),
             DataNews(
                 judulBerita = "Top 5 Gadgets to Look Out for in 2024",
@@ -113,7 +122,8 @@ object DummyData {
                 dateTime = "2024-10-02 14:00",
                 likes = 320,
                 comments = generateRandomComments(listOf("Technology", "Gadgets")),
-                categories = listOf("Technology", "Gadgets")
+                categories = listOf("Technology", "Gadgets"),
+                false
             )
         )
 

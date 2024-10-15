@@ -10,8 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import de.hdodenhof.circleimageview.CircleImageView
 
-class Adapter(private val listBerita: List<DataNews>) :
-    RecyclerView.Adapter<Adapter.NewsViewHolder>() {
+class Adapter : RecyclerView.Adapter<Adapter.NewsViewHolder>() {
 
     class NewsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var judulBerita: TextView = itemView.findViewById(R.id.judul)
@@ -26,7 +25,16 @@ class Adapter(private val listBerita: List<DataNews>) :
         var commentsImage: ImageView = itemView.findViewById(R.id.commentImage)
     }
 
-    lateinit var onClickAdapter: OnClickAdapter
+    private var listBerita: List<DataNews> = emptyList()
+    private lateinit var onClickAdapter: OnClickAdapter
+
+    fun setList(list: List<DataNews>) {
+        this.listBerita = list
+    }
+
+    fun clearList() {
+        listBerita = emptyList()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.card_view, parent, false)
@@ -64,23 +72,24 @@ class Adapter(private val listBerita: List<DataNews>) :
             holder.spacer.visibility = View.VISIBLE
         }
 
+        if (!news.liked) {
+            Glide.with(context)
+                .asBitmap()
+                .load(R.drawable.heart_outline)
+                .into(holder.likesImage)
+        } else {
+            Glide.with(context)
+                .asBitmap()
+                .load(R.drawable.ic_launcher_background)
+                .into(holder.likesImage)
+        }
+
         holder.itemView.setOnClickListener {
             onClickAdapter.onItemClicked()
         }
         holder.likesImage.setOnClickListener {
-            if (news.likes == holder.totalLikes.text.toString().toInt()) {
-                Glide.with(context)
-                    .asBitmap()
-                    .load(R.drawable.ic_launcher_background)
-                    .into(holder.likesImage)
-                holder.totalLikes.text = (news.likes + 1).toString()
-            } else {
-                Glide.with(context)
-                    .asBitmap()
-                    .load(R.drawable.heart_outline)
-                    .into(holder.likesImage)
-                holder.totalLikes.text = news.likes.toString()
-            }
+            onClickAdapter.onLikesClicked(position)
+            notifyDataSetChanged()
         }
     }
 
@@ -94,7 +103,7 @@ class Adapter(private val listBerita: List<DataNews>) :
 
     interface OnClickAdapter {
         fun onItemClicked()
-//        fun onLikesClicked(likes: Int, holder: NewsViewHolder)
+        fun onLikesClicked(position: Int)
     }
 }
 

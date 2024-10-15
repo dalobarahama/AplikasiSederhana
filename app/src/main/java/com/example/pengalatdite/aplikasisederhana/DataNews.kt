@@ -9,7 +9,8 @@ class DataNews(
     var dateTime: String,
     var likes: Int = 0,
     var comments: List<String>? = null,
-    var categories: List<String>
+    var categories: List<String>,
+    var liked: Boolean = false
 )
 
 /**
