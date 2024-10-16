@@ -80,7 +80,7 @@ class Adapter : RecyclerView.Adapter<Adapter.NewsViewHolder>() {
         } else {
             Glide.with(context)
                 .asBitmap()
-                .load(R.drawable.ic_launcher_background)
+                .load(R.drawable.heart)
                 .into(holder.likesImage)
         }
 
