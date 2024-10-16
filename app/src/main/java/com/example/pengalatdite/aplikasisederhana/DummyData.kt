@@ -12,7 +12,7 @@ object DummyData {
                 gambarBerita = R.drawable.tech_news_image,
                 gambarPenulis = R.drawable.author_john_doe,
                 dateTime = "2024-10-03 08:30",
-                likes = 120,
+                likes = generateRandomLikes(),
                 comments = generateRandomComments(listOf("Technology", "Science")),
                 categories = listOf("Technology", "Science"),
                 false
@@ -24,7 +24,7 @@ object DummyData {
                 gambarBerita = R.drawable.market_news_image,
                 gambarPenulis = R.drawable.author_jane_smith,
                 dateTime = "2024-10-01 12:45",
-                likes = 200,
+                likes = generateRandomLikes(),
                 comments = generateRandomComments(listOf("Finance", "Stock Market")),
                 categories = listOf("Finance", "Stock Market"),
                 false
@@ -36,7 +36,7 @@ object DummyData {
                 gambarBerita = R.drawable.climate_news_image,
                 gambarPenulis = R.drawable.author_alex_johnson,
                 dateTime = "2024-09-29 14:20",
-                likes = 340,
+                likes = generateRandomLikes(),
                 comments = generateRandomComments(listOf("Environment", "Global Warming")),
                 categories = listOf("Environment", "Global Warming"),
                 false
@@ -48,7 +48,7 @@ object DummyData {
                 gambarBerita = R.drawable.travel_news_image,
                 gambarPenulis = R.drawable.author_emily_brown,
                 dateTime = "2024-09-27 10:15",
-                likes = 450,
+                likes = generateRandomLikes(),
                 comments = generateRandomComments(listOf("Travel", "Lifestyle")),
                 categories = listOf("Travel", "Lifestyle"),
                 false
@@ -60,7 +60,7 @@ object DummyData {
                 gambarBerita = R.drawable.ai_news_image,
                 gambarPenulis = R.drawable.author_michael_green,
                 dateTime = "2024-10-03 15:00",
-                likes = 175,
+                likes = generateRandomLikes(),
                 comments = generateRandomComments(listOf("Technology", "Jobs")),
                 categories = listOf("Technology", "Jobs"),
                 false
@@ -72,7 +72,7 @@ object DummyData {
                 gambarBerita = R.drawable.space_news_image,
                 gambarPenulis = R.drawable.author_sarah_white,
                 dateTime = "2024-09-22 09:30",
-                likes = 220,
+                likes = generateRandomLikes(),
                 comments = generateRandomComments(listOf("Science", "Space")),
                 categories = listOf("Science", "Space"),
                 false
@@ -84,7 +84,7 @@ object DummyData {
                 gambarBerita = R.drawable.health_news_image,
                 gambarPenulis = R.drawable.author_laura_martinez,
                 dateTime = "2024-10-01 11:00",
-                likes = 300,
+                likes = generateRandomLikes(),
                 comments = generateRandomComments(listOf("Health", "Nutrition")),
                 categories = listOf("Health", "Nutrition"),
                 false
@@ -96,7 +96,7 @@ object DummyData {
                 gambarBerita = R.drawable.fashion_news_image,
                 gambarPenulis = R.drawable.author_david_clark,
                 dateTime = "2024-09-28 16:30",
-                likes = 140,
+                likes = generateRandomLikes(),
                 comments = generateRandomComments(listOf("Fashion", "Lifestyle")),
                 categories = listOf("Fashion", "Lifestyle"),
                 false
@@ -108,7 +108,7 @@ object DummyData {
                 gambarBerita = R.drawable.economy_news_image,
                 gambarPenulis = R.drawable.author_chris_lewis,
                 dateTime = "2024-09-30 13:15",
-                likes = 280,
+                likes = generateRandomLikes(),
                 comments = generateRandomComments(listOf("Finance", "Economy")),
                 categories = listOf("Finance", "Economy"),
                 false
@@ -120,7 +120,7 @@ object DummyData {
                 gambarBerita = R.drawable.gadgets_news_image,
                 gambarPenulis = R.drawable.author_jessica_brown,
                 dateTime = "2024-10-02 14:00",
-                likes = 320,
+                likes = generateRandomLikes(),
                 comments = generateRandomComments(listOf("Technology", "Gadgets")),
                 categories = listOf("Technology", "Gadgets"),
                 false
@@ -181,5 +181,7 @@ object DummyData {
         return List(randomNumber) { possibleComments.random() }
     }
 
-
+    fun generateRandomLikes(): Int {
+        return Random.nextInt(45, 555)
+    }
 }
