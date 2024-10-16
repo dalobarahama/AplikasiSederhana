@@ -6,8 +6,14 @@ object DummyData {
     fun getData(): List<DataNews> {
         return listOf(
             DataNews(
-                judulBerita = "New Tech Advancements in 2024",
-                deskripsiBerita = "The year 2024 marks a monumental shift in the world of technology. Groundbreaking innovations in artificial intelligence (AI) and machine learning (ML) are revolutionizing industries from healthcare to transportation. AI-driven systems are now capable of performing tasks once thought impossible, such as diagnosing complex diseases, piloting autonomous vehicles, and even creating original works of art. These advancements are not only boosting efficiency but are also opening doors to a future where technology seamlessly integrates into every aspect of daily life.\\n\\nHowever, these innovations also come with challenges. As AI systems become more autonomous, concerns about data privacy, job displacement, and ethical implications have intensified. The race to regulate AI is becoming urgent, with governments and corporations debating how to ensure these technologies benefit humanity while mitigating risks. 2024 is shaping up to be a pivotal year in the tech industry, with far-reaching consequences that will shape our world for decades to come.",
+                judulBerita = "AI and Machine Learning: Shaping the Future in 2024",
+                deskripsiBerita = """
+            <p>The year 2024 marks a monumental shift in the world of technology. Groundbreaking innovations in artificial intelligence (AI) and machine learning (ML) are revolutionizing industries from healthcare to transportation. AI-driven systems are now capable of performing tasks once thought impossible, such as diagnosing complex diseases, piloting autonomous vehicles, and even creating original works of art.</p>
+            <p>These advancements are not only boosting efficiency but are also opening doors to a future where technology seamlessly integrates into every aspect of daily life. However, as these technologies evolve, concerns about their impact on human labor are growing, and we are beginning to see the effects on various industries.</p>
+            <p>Experts predict that by 2030, nearly 30% of jobs currently held by humans could be automated. But while some see this as a threat, others see it as an opportunity to upskill the workforce and create jobs in new fields.</p>
+            <p>As AI systems become more autonomous, concerns about data privacy, job displacement, and ethical implications have intensified. The race to regulate AI is becoming urgent, with governments and corporations debating how to ensure these technologies benefit humanity while mitigating risks.</p>
+            <p>2024 is shaping up to be a pivotal year in the tech industry, with far-reaching consequences that will shape our world for decades to come. Whether these changes will be beneficial or detrimental largely depends on how we approach the regulation and implementation of these systems.</p>
+        """.trimIndent(),
                 namaPenulis = "John Doe",
                 gambarBerita = R.drawable.tech_news_image,
                 gambarPenulis = R.drawable.author_john_doe,
@@ -18,8 +24,14 @@ object DummyData {
                 false
             ),
             DataNews(
-                judulBerita = "Breaking News: Market Hits Record High",
-                deskripsiBerita = "The global stock markets have experienced an unexpected surge, reaching unprecedented highs in 2024. Investors are flocking back to equities, buoyed by strong earnings reports and optimism about the future of the global economy. Despite recent geopolitical tensions and lingering concerns about inflation, the markets have remained resilient, with major indices breaking records. This bullish trend has caught many analysts off guard, leading some to predict that the rally may continue for the foreseeable future.\n\nYet, not everyone is convinced. Skeptics warn that the market could be due for a correction, especially given the volatility seen in recent years. Some experts believe that the surge is a result of speculative investment rather than sustainable economic growth. As investors continue to watch for signs of change, the coming months will be critical in determining whether the markets can maintain their upward momentum or if a downturn is on the horizon.",
+                judulBerita = "Global Stock Markets Surge Amid Optimism in 2024",
+                deskripsiBerita = """
+            <p>The global stock markets have experienced an unexpected surge, reaching unprecedented highs in 2024. Investors are flocking back to equities, buoyed by strong earnings reports and optimism about the future of the global economy.</p>
+            <p>Despite recent geopolitical tensions and lingering concerns about inflation, the markets have remained resilient, with major indices breaking records. Analysts believe that strong corporate earnings are driving the bullish sentiment, although the long-term sustainability of this trend remains uncertain.</p>
+            <p>Skeptics warn that the market could be due for a correction, especially given the volatility seen in recent years. Some experts believe that the surge is a result of speculative investment rather than sustainable economic growth, and the coming months will be critical in determining the markets' future direction.</p>
+            <p>Nevertheless, many investors are optimistic about the outlook. With interest rates remaining low, the appeal of equities continues to grow. The question on everyone’s mind is whether the current growth will persist or whether we are headed for a significant market adjustment.</p>
+            <p>As investors continue to watch for signs of change, the coming months will be critical in determining whether the markets can maintain their upward momentum or if a downturn is on the horizon. 2024 may be a historic year for global finance, with long-term implications for investors around the world.</p>
+        """.trimIndent(),
                 namaPenulis = "Jane Smith",
                 gambarBerita = R.drawable.market_news_image,
                 gambarPenulis = R.drawable.author_jane_smith,
@@ -30,8 +42,14 @@ object DummyData {
                 false
             ),
             DataNews(
-                judulBerita = "Climate Change: What You Need to Know",
-                deskripsiBerita = "Climate change continues to be one of the most pressing issues of our time, with 2024 witnessing some of the most extreme weather events in recent history. From devastating wildfires in Australia to record-breaking hurricanes in the Atlantic, the effects of a warming planet are becoming impossible to ignore. Scientists are warning that the world is approaching a tipping point, where the damage caused by climate change could become irreversible if immediate action is not taken.\n\nGovernments around the world are now being forced to respond with bold policies aimed at reducing carbon emissions and transitioning to renewable energy sources. However, progress has been slow, and many fear that it may be too little, too late. The need for global cooperation is more urgent than ever as climate scientists push for a rapid reduction in greenhouse gases. Public pressure is mounting as citizens demand solutions to safeguard the planet for future generations.",
+                judulBerita = "Climate Change Reaches Critical Point: Extreme Weather Events in 2024",
+                deskripsiBerita = """
+            <p>Climate change continues to be one of the most pressing issues of our time, with 2024 witnessing some of the most extreme weather events in recent history. From devastating wildfires in Australia to record-breaking hurricanes in the Atlantic, the effects of a warming planet are becoming impossible to ignore.</p>
+            <p>Scientists are warning that the world is approaching a tipping point, where the damage caused by climate change could become irreversible if immediate action is not taken. However, governments and corporations worldwide are grappling with how best to combat these changes while maintaining economic growth.</p>
+            <p>In response to these climate challenges, countries are now implementing aggressive policies aimed at reducing carbon emissions and transitioning to renewable energy sources. Unfortunately, progress has been slow, with some regions still heavily reliant on fossil fuels for their energy needs.</p>
+            <p>The urgency for global cooperation has never been higher. As public pressure mounts, citizens around the world are calling for more robust and rapid measures to address the climate crisis and secure a livable future for the next generation.</p>
+            <p>2024 may be the year that humanity takes the decisive steps necessary to combat climate change. With every passing day, the stakes grow higher, and the world waits to see how global leaders will respond to this unprecedented challenge.</p>
+        """.trimIndent(),
                 namaPenulis = "Alex Johnson",
                 gambarBerita = R.drawable.climate_news_image,
                 gambarPenulis = R.drawable.author_alex_johnson,
@@ -42,8 +60,14 @@ object DummyData {
                 false
             ),
             DataNews(
-                judulBerita = "Top 10 Travel Destinations for 2024",
-                deskripsiBerita = "The post-pandemic travel boom has reignited a passion for exploration, with millions of people eager to discover new destinations in 2024. As countries reopen their borders and ease restrictions, travel enthusiasts are planning trips to some of the world’s most exciting locations. From the tranquil beaches of Bali to the historical wonders of Rome, there are countless places that promise adventure and relaxation. Travel experts are predicting that 2024 will be a record-breaking year for tourism, with pent-up demand driving unprecedented growth in the sector.\n\nBut with the surge in travel comes a new set of challenges. Sustainable tourism has become a critical topic, as popular destinations struggle with overcrowding and environmental degradation. As more travelers seek out eco-friendly options, tour operators and airlines are adjusting their offerings to cater to the growing demand for responsible travel. Whether you're looking for a luxury getaway or a backpacking adventure, 2024 offers endless possibilities for those with a case of wanderlust.",
+                judulBerita = "Post-Pandemic Travel Boom: Top Destinations to Explore in 2024",
+                deskripsiBerita = """
+            <p>The post-pandemic travel boom has reignited a passion for exploration, with millions of people eager to discover new destinations in 2024. As countries reopen their borders and ease restrictions, travel enthusiasts are planning trips to some of the world’s most exciting locations.</p>
+            <p>From the tranquil beaches of Bali to the historical wonders of Rome, there are countless places that promise adventure and relaxation. Travel experts predict that 2024 will be a record-breaking year for tourism, with pent-up demand driving unprecedented growth in the sector.</p>
+            <p>However, the travel boom also brings new challenges. Popular destinations are struggling with overcrowding, and concerns about environmental degradation are growing. Sustainable tourism is now a critical focus for many travel operators.</p>
+            <p>As more travelers seek out eco-friendly options, airlines and tour operators are adjusting their offerings to meet the growing demand for responsible travel. For the environmentally conscious traveler, 2024 offers a wealth of opportunities to explore the world while minimizing their carbon footprint.</p>
+            <p>Whether you're planning a luxury getaway or a backpacking adventure, 2024 is shaping up to be an exciting year for travelers. With more sustainable travel options than ever before, the world is waiting to be explored responsibly and thoughtfully.</p>
+        """.trimIndent(),
                 namaPenulis = "Emily Brown",
                 gambarBerita = R.drawable.travel_news_image,
                 gambarPenulis = R.drawable.author_emily_brown,
@@ -54,8 +78,14 @@ object DummyData {
                 false
             ),
             DataNews(
-                judulBerita = "AI Revolution: Impact on Future Jobs",
-                deskripsiBerita = "As artificial intelligence (AI) continues to evolve, its impact on the workforce is becoming increasingly apparent. AI has already begun to automate many tasks traditionally performed by humans, from customer service roles to manufacturing jobs. While some fear that this will lead to widespread job displacement, others argue that AI will create new opportunities in industries we have yet to imagine. The future of work in 2024 is a topic of much debate, with experts divided on whether AI will be a net positive or negative for the economy.\n\nIn response to these changes, companies are investing heavily in reskilling programs to prepare workers for an AI-driven future. Many believe that the key to success will be adaptability, as employees must learn to work alongside AI systems to remain competitive in the job market. Meanwhile, policymakers are grappling with how to regulate the use of AI to ensure that its benefits are shared widely across society. As we move forward, the role of AI in shaping the workforce will be one of the defining issues of our time.",
+                judulBerita = "AI and the Future of Work: Navigating Job Displacement in 2024",
+                deskripsiBerita = """
+            <p>As artificial intelligence (AI) continues to evolve, its impact on the workforce is becoming increasingly apparent. AI has already begun to automate many tasks traditionally performed by humans, from customer service roles to manufacturing jobs.</p>
+            <p>While some fear that this will lead to widespread job displacement, others argue that AI will create new opportunities in industries we have yet to imagine. The future of work in 2024 is a topic of much debate, with experts divided on whether AI will be a net positive or negative for the economy.</p>
+            <p>In response to these changes, companies are investing heavily in reskilling programs to prepare workers for an AI-driven future. Workers will need to adapt quickly to thrive in this new landscape.</p>
+            <p>Meanwhile, policymakers are grappling with how to regulate the use of AI to ensure that its benefits are shared widely across society. Many believe that regulation is essential to prevent the concentration of power in a few large companies.</p>
+            <p>The role of AI in shaping the workforce will be one of the defining issues of our time. Whether it leads to a brighter future or deepens societal divides will depend largely on how these technologies are developed and implemented in the years to come.</p>
+        """.trimIndent(),
                 namaPenulis = "Michael Green",
                 gambarBerita = R.drawable.ai_news_image,
                 gambarPenulis = R.drawable.author_michael_green,
@@ -66,101 +96,166 @@ object DummyData {
                 false
             ),
             DataNews(
-                judulBerita = "New Discoveries in Space Exploration",
-                deskripsiBerita = "The mysteries of the universe continue to unfold in 2024, as space exploration reaches new heights. NASA and private companies like SpaceX have made significant strides in uncovering the secrets of our solar system and beyond. This year, groundbreaking discoveries have been made, including the detection of new exoplanets that may be capable of supporting life. These findings are reshaping our understanding of the universe and sparking renewed interest in the possibility of extraterrestrial life.\n\nAt the same time, advances in space technology are making space travel more accessible than ever before. With plans to establish a permanent human presence on the Moon and Mars, the dream of living beyond Earth is slowly becoming a reality. As scientists continue to explore the far reaches of space, the question remains: Are we alone in the universe? The answers we find could change the course of humanity forever.",
+                judulBerita = "2024: A Year of Triumph and Transition in Sports",
+                deskripsiBerita = """
+            <p>In the world of sports, 2024 has been a year of both triumph and heartbreak. Athletes across various disciplines have broken records, while others have faced unexpected setbacks in their careers.</p>
+            <p>The Summer Olympics, held in Paris, was the highlight of the year, with athletes from around the world competing at the highest level. Among the standout moments was the performance of sprinters who shattered records in the 100m and 200m events.</p>
+            <p>In football, the World Cup qualifiers are heating up, with unexpected teams making it to the top of the standings. The road to the 2026 World Cup is shaping up to be one of the most competitive yet.</p>
+            <p>Meanwhile, the world of tennis has seen a new generation of players rising to challenge the old guard. With some veteran players retiring, the sport is entering a new era.</p>
+            <p>2024 will be remembered as a year of transition in sports, where new champions emerged and the legends of the past took their final bow. Fans are eagerly awaiting what comes next as the sporting world continues to evolve.</p>
+        """.trimIndent(),
                 namaPenulis = "Sarah White",
-                gambarBerita = R.drawable.space_news_image,
+                gambarBerita = R.drawable.sports_news_image,
                 gambarPenulis = R.drawable.author_sarah_white,
                 dateTime = "2024-09-22 09:30",
                 likes = generateRandomLikes(),
-                comments = generateRandomComments(listOf("Science", "Space")),
-                categories = listOf("Science", "Space"),
+                comments = generateRandomComments(listOf("Sports", "Olympics")),
+                categories = listOf("Sports", "Olympics"),
                 false
             ),
             DataNews(
-                judulBerita = "Health Benefits of a Plant-Based Diet",
-                deskripsiBerita = "A growing body of research shows that adopting a plant-based diet can have profound health benefits. From reducing the risk of heart disease to promoting weight loss, a diet rich in fruits, vegetables, and whole grains can lead to a longer, healthier life. In 2024, more people than ever are embracing plant-based eating, driven by both health concerns and ethical considerations related to animal welfare. Nutrition experts are encouraging people to make small, sustainable changes to their diet that can yield significant long-term benefits.\n\nBeyond personal health, plant-based diets are also gaining traction as a solution to environmental challenges. Livestock farming is a major contributor to greenhouse gas emissions, deforestation, and water scarcity. By reducing our reliance on animal products, we can lessen our environmental impact and help mitigate climate change. Whether you're a lifelong vegan or just starting to explore plant-based options, 2024 is a great year to start making healthier, more sustainable choices.",
+                judulBerita = "Sustainability in Fashion: The Eco-Friendly Movement in 2024",
+                deskripsiBerita = """
+            <p>2024 is shaping up to be a pivotal year for the fashion industry, as sustainability continues to take center stage. More brands than ever are focusing on eco-friendly designs, from using recycled materials to reducing water consumption in production processes.</p>
+            <p>The shift towards sustainability is being driven by both consumers and regulators, as the environmental impact of the fashion industry has become impossible to ignore. Fast fashion brands, in particular, are facing increasing scrutiny for their wasteful practices.</p>
+            <p>At the same time, new technologies are emerging that could revolutionize how clothes are made. From 3D printing to fabric innovations, the fashion industry is entering an exciting period of change.</p>
+            <p>However, there are challenges ahead. Many smaller brands struggle to compete with larger companies that can afford the transition to sustainable practices. For these brands, balancing environmental responsibility with financial viability is a delicate task.</p>
+            <p>The future of fashion in 2024 and beyond will depend on the ability of the industry to adapt to these new realities. As consumers become more environmentally conscious, the demand for sustainable fashion is only expected to grow.</p>
+        """.trimIndent(),
                 namaPenulis = "Laura Martinez",
-                gambarBerita = R.drawable.health_news_image,
+                gambarBerita = R.drawable.fashion_news_image,
                 gambarPenulis = R.drawable.author_laura_martinez,
                 dateTime = "2024-10-01 11:00",
                 likes = generateRandomLikes(),
-                comments = generateRandomComments(listOf("Health", "Nutrition")),
-                categories = listOf("Health", "Nutrition"),
+                comments = generateRandomComments(listOf("Fashion", "Sustainability")),
+                categories = listOf("Fashion", "Sustainability"),
                 false
             ),
             DataNews(
-                judulBerita = "New Trends in Fashion for 2024",
-                deskripsiBerita = "Fashion in 2024 is all about bold choices and sustainability. Designers are embracing innovative materials and eco-friendly production methods, resulting in collections that are not only stunning but also kind to the planet. Sustainable fashion has moved from the fringes to the mainstream, with major brands showcasing collections made from recycled materials and ethically sourced fabrics. This year, we're seeing a resurgence of bright colors, bold prints, and avant-garde designs that push the boundaries of traditional fashion.\n\nBut sustainability is not just a trend — it's becoming a necessity. With consumers increasingly concerned about the environmental impact of their wardrobe choices, fashion brands are being forced to rethink their production processes. Many are investing in circular fashion, where garments are designed to be reused, recycled, or repurposed. As the fashion industry evolves, 2024 is proving to be a year of exciting changes that could redefine how we think about style and sustainability.",
+                judulBerita = "Streaming Platforms Dominate the Entertainment Industry in 2024",
+                deskripsiBerita = """
+            <p>In 2024, the entertainment industry is undergoing a transformation as streaming platforms continue to dominate the media landscape. Traditional TV and movie theaters are struggling to compete with the convenience and variety offered by streaming services like Netflix, Disney+, and Amazon Prime.</p>
+            <p>This shift is not just affecting how content is consumed, but also how it is produced. Major studios are now investing heavily in exclusive content for their streaming platforms, with some even bypassing theatrical releases altogether.</p>
+            <p>Meanwhile, the rise of independent creators on platforms like YouTube and TikTok is challenging the traditional power structures of Hollywood. These platforms allow creators to reach millions of viewers without the backing of major studios, giving rise to a new wave of digital stars.</p>
+            <p>As the entertainment landscape evolves, questions remain about the future of traditional media. Will movie theaters survive in the age of streaming, or will they become a niche experience? And how will the industry adapt to the growing power of independent creators?</p>
+            <p>2024 is shaping up to be a year of change for entertainment, as audiences continue to shift towards digital platforms. The industry is at a crossroads, and the decisions made in the coming years will shape its future for decades to come.</p>
+        """.trimIndent(),
                 namaPenulis = "David Clark",
-                gambarBerita = R.drawable.fashion_news_image,
+                gambarBerita = R.drawable.entertaiment_news_image,
                 gambarPenulis = R.drawable.author_david_clark,
                 dateTime = "2024-09-28 16:30",
                 likes = generateRandomLikes(),
-                comments = generateRandomComments(listOf("Fashion", "Lifestyle")),
-                categories = listOf("Fashion", "Lifestyle"),
+                comments = generateRandomComments(listOf("Entertainment", "Streaming")),
+                categories = listOf("Entertainment", "Streaming"),
                 false
             ),
             DataNews(
-                judulBerita = "How to Save Money in a Tough Economy",
-                deskripsiBerita = "With economic uncertainty on the rise, saving money has become a top priority for many households in 2024. As inflation continues to impact the cost of living, more people are looking for ways to cut expenses and boost their savings. This article offers practical tips on how to manage your finances, from creating a budget to reducing unnecessary spending. Whether you're saving for a big purchase or just trying to make ends meet, these strategies can help you stay on track.\n\nIn addition to budgeting tips, financial experts are also recommending ways to invest wisely during uncertain times. With the stock market experiencing volatility, diversifying your investment portfolio can help protect your assets and provide long-term financial security. By following these simple steps, you can build a solid financial foundation that will see you through both good times and bad.",
+                judulBerita = "Education in 2024: The Rise of Hybrid and Online Learning Models",
+                deskripsiBerita = """
+            <p>In the realm of education, 2024 is a year of innovation and transformation. The pandemic accelerated the adoption of online learning, and many of these changes have persisted even as schools and universities return to in-person classes.</p>
+            <p>Hybrid learning models are now common, blending online and traditional classroom experiences to offer more flexibility to students. These models have been particularly beneficial for non-traditional students, such as working professionals and parents.</p>
+            <p>At the same time, new educational technologies are enhancing the learning experience. From AI-powered tutoring systems to virtual reality classrooms, technology is playing an increasingly important role in education.</p>
+            <p>However, the shift to digital learning has not been without its challenges. Concerns about access to technology and the quality of online education have been raised, particularly for students from disadvantaged backgrounds.</p>
+            <p>2024 marks a turning point for education, as institutions navigate the complexities of integrating technology into the learning process. The future of education is digital, but ensuring that all students have access to high-quality learning remains a critical challenge.</p>
+        """.trimIndent(),
                 namaPenulis = "Chris Lewis",
-                gambarBerita = R.drawable.economy_news_image,
+                gambarBerita = R.drawable.education_news_image,
                 gambarPenulis = R.drawable.author_chris_lewis,
                 dateTime = "2024-09-30 13:15",
                 likes = generateRandomLikes(),
-                comments = generateRandomComments(listOf("Finance", "Economy")),
-                categories = listOf("Finance", "Economy"),
+                comments = generateRandomComments(listOf("Education", "Technology")),
+                categories = listOf("Education", "Technology"),
                 false
             ),
             DataNews(
-                judulBerita = "Top 5 Gadgets to Look Out for in 2024",
-                deskripsiBerita = "2024 is shaping up to be an exciting year for tech enthusiasts, with a slew of new gadgets hitting the market. From foldable smartphones with revolutionary display technology to smart home devices that integrate seamlessly into daily life, the latest tech innovations are pushing the boundaries of what’s possible. These gadgets not only offer convenience but also introduce new ways of interacting with technology, making life easier and more connected. Whether you're looking for the latest smartwatch or a cutting-edge gaming console, 2024 has something for everyone.\n\nHowever, with so many new gadgets on the market, it can be tough to decide which ones are worth the investment. This article breaks down the top five must-have devices of the year, covering everything from specs to user experience. Whether you're a tech enthusiast or just looking for a new gadget to enhance your daily routine, this guide will help you make an informed choice.",
+                judulBerita = "Space Exploration in 2024: New Frontiers and the Return to the Moon",
+                deskripsiBerita = """
+            <p>The space race is back, and 2024 is a year of major milestones for the exploration of the final frontier. Space agencies and private companies alike are making rapid progress in their missions to explore the moon, Mars, and beyond.</p>
+            <p>NASA’s Artemis program has taken significant steps towards returning humans to the moon, with a crewed mission planned for the near future. Meanwhile, SpaceX continues to push the boundaries of space exploration with its Starship program, which aims to make interplanetary travel a reality.</p>
+            <p>Other countries are also joining the space race. China’s space program has made impressive strides, and the European Space Agency is developing new technologies to explore distant planets.</p>
+            <p>While the excitement around space exploration is growing, there are also concerns about the militarization of space. As more nations develop space capabilities, the risk of conflict in space is increasing, and international regulations will be essential to maintain peace.</p>
+            <p>2024 is a landmark year for space exploration, with new missions launching and humanity getting closer than ever to becoming a multi-planetary species. The next decade could see humanity taking its first steps towards a permanent presence in space.</p>
+        """.trimIndent(),
                 namaPenulis = "Jessica Brown",
-                gambarBerita = R.drawable.gadgets_news_image,
+                gambarBerita = R.drawable.space_news_image,
                 gambarPenulis = R.drawable.author_jessica_brown,
                 dateTime = "2024-10-02 14:00",
                 likes = generateRandomLikes(),
-                comments = generateRandomComments(listOf("Technology", "Gadgets")),
-                categories = listOf("Technology", "Gadgets"),
+                comments = generateRandomComments(listOf("Science", "Space Exploration")),
+                categories = listOf("Science", "Space Exploration"),
                 false
             )
         )
 
     }
 
-    fun generateRandomComments(categories: List<String>): List<String> {
+    private fun generateRandomComments(categories: List<String>): List<String> {
         val technologyComments = listOf(
             "AI is the future!",
             "This is groundbreaking!",
             "Tech is advancing so fast!",
             "Exciting times ahead for tech!",
             "This is very informative.",
-            "Fascinating developments!"
+            "Fascinating developments!",
+            "Scary but exciting.",
+            "This will change everything.",
+            "Jobs will disappear.",
+            "What’s next for AI?",
+            "I hope it’s regulated."
         )
 
         val financeComments = listOf(
-            "Amazing financial insight!", "Interesting stock market update.",
-            "This could be huge for investors.", "I'm following this closely.",
-            "Very informative, thanks!", "Great read for market enthusiasts."
+            "Amazing!",
+            "Wow, this is big news.",
+            "How long can this last?",
+            "The market is unpredictable.",
+            "Hope for the best.",
+            "Fingers crossed."
         )
 
         val environmentComments = listOf(
-            "This is worrying.", "Climate change needs immediate action!",
-            "We need more sustainable solutions.", "This article raises serious concerns.",
-            "It's time to take this seriously.", "A very pressing issue."
+            "This is worrying.",
+            "We need to take action.",
+            "The future looks bleak.",
+            "It's time for change.",
+            "More needs to be done.",
+            "We must act now."
         )
 
         val travelComments = listOf(
-            "These travel tips are great!", "I want to visit these places!",
-            "Can't wait to book my next trip!", "This is inspiring wanderlust!",
-            "Traveling is back in style.", "Great recommendations!"
+            "Can't wait to visit these places!",
+            "Great recommendations.",
+            "Travel is back!",
+            "Amazing destinations.",
+            "Is travel really sustainable?",
+            "The world is reopening!"
         )
 
-        val healthComments = listOf(
-            "I'm switching to plant-based!", "This is great for health-conscious readers.",
-            "Good health tips, thanks!", "Very useful advice on healthy living.",
-            "Going plant-based is the future!", "Thanks for promoting healthy eating."
+        val sportsComments = listOf(
+            "What a year for sports!",
+            "Incredible performances.",
+            "Sad to see legends retire.",
+            "Who will be the next big star?",
+            "Olympics were amazing!",
+            "Looking forward to 2026."
+        )
+
+        val fashionComments = listOf(
+            "Sustainable fashion is the future.",
+            "Love this shift!",
+            "Finally, change is happening.",
+            "Big brands need to do more.",
+            "Eco-friendly fashion is cool.",
+            "I’m buying more sustainable clothing."
+        )
+
+        val scienceComments = listOf(
+            "Sustainable fashion is the future.",
+            "Love this shift!",
+            "Finally, change is happening.",
+            "Big brands need to do more.",
+            "Eco-friendly fashion is cool.",
+            "I’m buying more sustainable clothing."
         )
 
         val possibleComments = when {
@@ -168,7 +263,9 @@ object DummyData {
             categories.contains("Finance") -> financeComments
             categories.contains("Environment") -> environmentComments
             categories.contains("Travel") -> travelComments
-            categories.contains("Health") -> healthComments
+            categories.contains("Sports") -> sportsComments
+            categories.contains("Fashion") -> fashionComments
+            categories.contains("Science") -> fashionComments
             else -> listOf(
                 "Great article!",
                 "Informative!",
@@ -181,7 +278,34 @@ object DummyData {
         return List(randomNumber) { possibleComments.random() }
     }
 
-    fun generateRandomLikes(): Int {
+    private fun generateRandomLikes(): Int {
         return Random.nextInt(45, 555)
+    }
+
+    fun generateRandomName(): String {
+        val nameList = listOf(
+            "Olivia",
+            "Liam",
+            "Emma",
+            "Noah",
+            "Ava",
+            "James",
+            "Sophia",
+            "Lucas",
+            "Mia",
+            "Elijah",
+            "Amelia",
+            "Benjamin",
+            "Isabella",
+            "Henry",
+            "Charlotte",
+            "Alexander",
+            "Harper",
+            "Ethan",
+            "Evelyn",
+            "Jack"
+        )
+
+        return nameList[Random.nextInt(nameList.size)]
     }
 }

@@ -1,6 +1,7 @@
 package com.example.pengalatdite.aplikasisederhana
 
 import android.content.Context
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,7 +23,6 @@ class Adapter : RecyclerView.Adapter<Adapter.NewsViewHolder>() {
         var dateTimes: TextView = itemView.findViewById(R.id.dateTime)
         var spacer: View = itemView.findViewById(R.id.lineSpacer)
         var likesImage: ImageView = itemView.findViewById(R.id.loveImage)
-        var commentsImage: ImageView = itemView.findViewById(R.id.commentImage)
     }
 
     private var listBerita: List<DataNews> = emptyList()
@@ -60,7 +60,12 @@ class Adapter : RecyclerView.Adapter<Adapter.NewsViewHolder>() {
             .into(holder.gambarPenulis)
 
         holder.judulBerita.text = news.judulBerita
-        holder.deskripsiBerita.text = news.deskripsiBerita
+        holder.deskripsiBerita.text =
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+                Html.fromHtml(news.deskripsiBerita, Html.FROM_HTML_MODE_COMPACT)
+            } else {
+                Html.fromHtml(news.deskripsiBerita)
+            }
         holder.namaPenulis.text = news.namaPenulis
         holder.totalLikes.text = news.likes.toString()
         holder.totalCommets.text = totalComments.toString()
@@ -85,7 +90,7 @@ class Adapter : RecyclerView.Adapter<Adapter.NewsViewHolder>() {
         }
 
         holder.itemView.setOnClickListener {
-            onClickAdapter.onItemClicked()
+            onClickAdapter.onItemClicked(news, position)
         }
         holder.likesImage.setOnClickListener {
             onClickAdapter.onLikesClicked(position)
@@ -93,16 +98,12 @@ class Adapter : RecyclerView.Adapter<Adapter.NewsViewHolder>() {
         }
     }
 
-    override fun getItemId(position: Int): Long {
-        return super.getItemId(position)
-    }
-
     fun setOnClickRecyclerAdapter(onClickAdapter: OnClickAdapter) {
         this.onClickAdapter = onClickAdapter
     }
 
     interface OnClickAdapter {
-        fun onItemClicked()
+        fun onItemClicked(news: DataNews, position: Int)
         fun onLikesClicked(position: Int)
     }
 }

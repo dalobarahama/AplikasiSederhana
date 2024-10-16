@@ -1,5 +1,9 @@
 package com.example.pengalatdite.aplikasisederhana
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 class DataNews(
     var judulBerita: String,
     var deskripsiBerita: String,
@@ -10,8 +14,8 @@ class DataNews(
     var likes: Int = 0,
     var comments: List<String>? = null,
     var categories: List<String>,
-    var liked: Boolean = false
-)
+    var liked: Boolean = false,
+) : Parcelable
 
 /**
  * https://id.pinterest.com/pin/296956169191471520/
