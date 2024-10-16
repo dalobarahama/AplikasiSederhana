@@ -4,6 +4,8 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.text.Html
+import android.util.Log
+import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -13,34 +15,28 @@ import com.bumptech.glide.Glide
 
 class DetailActivity : AppCompatActivity() {
 
-    private var listener: Listener? = null
-
-    interface Listener {
-        fun onLoveImageClicked(dataPosition: Int)
-    }
-
     companion object {
         private const val NEWS_DATA = "newsData"
         private const val DATA_POSITION = "dataPosition"
 
-        fun newIntent(activity: Activity, news: DataNews, position: Int) {
+        fun newIntent(activity: Activity, news: DataNews, position: Int): Intent {
             val intent = Intent(activity, DetailActivity::class.java)
             intent.putExtra(NEWS_DATA, news)
             intent.putExtra(DATA_POSITION, position)
-            activity.startActivity(intent)
+
+            return intent
         }
     }
 
-    fun setListener(listener: Listener) {
-        this.listener = listener
-    }
+    private var newsData: DataNews? = null
+    private var dataPosition: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
 
-        val newsData: DataNews? = intent.getParcelableExtra(NEWS_DATA)
-        val dataPosition: Int = intent.getIntExtra(DATA_POSITION, 0)
+        newsData = intent.getParcelableExtra(NEWS_DATA)
+        dataPosition = intent.getIntExtra(DATA_POSITION, 0)
 
         val sbCategories: StringBuilder = StringBuilder()
 
@@ -79,16 +75,52 @@ class DetailActivity : AppCompatActivity() {
         }
         Glide.with(this)
             .asBitmap()
-            .load(newsData.gambarBerita)
+            .load(newsData!!.gambarBerita)
             .into(bannerImage)
 
-        for (category in newsData.categories) {
+        for (category in newsData!!.categories) {
             sbCategories.append(category).append(", ")
         }
         categories.text = sbCategories
 
         loveImage.setOnClickListener {
-            listener?.onLoveImageClicked(dataPosition)
+            if (!newsData!!.liked) {
+                newsData!!.likes++
+                newsData!!.liked = true
+                totalLikes.text = newsData!!.likes.toString()
+
+                Glide.with(this)
+                    .asBitmap()
+                    .load(R.drawable.heart)
+                    .into(loveImage)
+            } else {
+                newsData!!.likes--
+                newsData!!.liked = false
+                totalLikes.text = newsData!!.likes.toString()
+
+                Glide.with(this)
+                    .asBitmap()
+                    .load(R.drawable.heart_outline)
+                    .into(loveImage)
+            }
+            Log.d("onLoveImageClicked", "clicked")
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                val returnIntent = Intent()
+                returnIntent.putExtra(MainActivity.NEWS_DATA, newsData)
+                returnIntent.putExtra(MainActivity.POSITION, dataPosition)
+
+                setResult(Activity.RESULT_OK, returnIntent)
+                finish()
+
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
         }
     }
 }

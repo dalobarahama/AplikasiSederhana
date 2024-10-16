@@ -2,14 +2,20 @@ package com.example.pengalatdite.aplikasisederhana
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class MainActivity : AppCompatActivity(), DetailActivity.Listener {
+class MainActivity : AppCompatActivity() {
+
+    companion object {
+        const val NEWS_DATA = "newsData"
+        const val POSITION = "position"
+    }
 
     private lateinit var adapter: Adapter
     private lateinit var newsData: List<DataNews>
@@ -17,9 +23,6 @@ class MainActivity : AppCompatActivity(), DetailActivity.Listener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        val detailActivity = DetailActivity()
-        detailActivity.setListener(this)
 
         newsData = DummyData.getData()
 
@@ -35,7 +38,7 @@ class MainActivity : AppCompatActivity(), DetailActivity.Listener {
         recyclerView.adapter = adapter
         adapter.setOnClickRecyclerAdapter(object : Adapter.OnClickAdapter {
             override fun onItemClicked(news: DataNews, position: Int) {
-                DetailActivity.newIntent(this@MainActivity, news, position)
+                resultLauncher.launch(DetailActivity.newIntent(this@MainActivity, news, position))
             }
 
             override fun onLikesClicked(position: Int) {
@@ -52,7 +55,7 @@ class MainActivity : AppCompatActivity(), DetailActivity.Listener {
 
     override fun onStart() {
         super.onStart()
-        adapter.setList(newsData)
+        fetchNewsData()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -71,7 +74,29 @@ class MainActivity : AppCompatActivity(), DetailActivity.Listener {
         }
     }
 
-    override fun onLoveImageClicked(dataPosition: Int) {
-        Toast.makeText(this, "Position $dataPosition", Toast.LENGTH_SHORT).show()
+    private fun fetchNewsData() {
+        adapter.clearList()
+        adapter.setList(newsData)
+    }
+
+    private val resultLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == RESULT_OK) {
+            val dataResult = result.data
+            val data: DataNews? = dataResult?.getParcelableExtra(NEWS_DATA)
+            val position = dataResult?.getIntExtra(POSITION, 0)
+
+            newsData = newsData.mapIndexed { index, dataNews ->
+                (if (index == position) data else dataNews)!!
+            }
+
+            fetchNewsData()
+
+            Log.d(
+                "onLoveImageClicked",
+                "position $position, data likes ${data?.likes}, newsData likes ${newsData[position!!].likes}"
+            )
+        }
     }
 }

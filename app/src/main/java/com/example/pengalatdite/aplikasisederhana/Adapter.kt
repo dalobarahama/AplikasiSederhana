@@ -30,6 +30,7 @@ class Adapter : RecyclerView.Adapter<Adapter.NewsViewHolder>() {
 
     fun setList(list: List<DataNews>) {
         this.listBerita = list
+        notifyDataSetChanged()
     }
 
     fun clearList() {

@@ -12,7 +12,6 @@
             android:name=".DetailActivity"
             android:exported="false"
             android:label="@string/title_activity_detail"
-            android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ProfileActivity"
