@@ -124,6 +124,13 @@
 
             </RelativeLayout>
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_comments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                tools:listitem="@layout/comments_card_view" />
+
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>

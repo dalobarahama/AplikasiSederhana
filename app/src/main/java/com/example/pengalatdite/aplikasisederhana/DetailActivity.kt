@@ -14,6 +14,8 @@ import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
 class DetailActivity : AppCompatActivity() {
@@ -50,6 +52,7 @@ class DetailActivity : AppCompatActivity() {
         val totalLikes = findViewById<TextView>(R.id.totalLikes)
         val totalComments = findViewById<TextView>(R.id.totalComments)
         val categories = findViewById<TextView>(R.id.news_categories)
+        val rvComments = findViewById<RecyclerView>(R.id.rv_comments)
 
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -109,19 +112,13 @@ class DetailActivity : AppCompatActivity() {
             Log.d("onLoveImageClicked", "clicked")
         }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            onBackInvokedDispatcher.registerOnBackInvokedCallback(
-                OnBackInvokedDispatcher.PRIORITY_DEFAULT
-            ) {
-                goBack()
-            }
-        } else {
-            onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
-                override fun handleOnBackPressed() {
-                    goBack()
-                }
-            })
-        }
+        rvComments.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+
+        val adapter = CommentsAdapter()
+        rvComments.adapter = adapter
+        adapter.setList(newsData!!.comments!!)
+
+        setOnBackPressed()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -143,4 +140,21 @@ class DetailActivity : AppCompatActivity() {
         setResult(Activity.RESULT_OK, returnIntent)
         finish()
     }
+
+    private fun setOnBackPressed() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            onBackInvokedDispatcher.registerOnBackInvokedCallback(
+                OnBackInvokedDispatcher.PRIORITY_DEFAULT
+            ) {
+                goBack()
+            }
+        } else {
+            onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    goBack()
+                }
+            })
+        }
+    }
+
 }
