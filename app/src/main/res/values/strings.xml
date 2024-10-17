@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Aplikasi Sederhana</string>
+    <string name="app_name">news</string>
     <string name="title_activity_detail">DetailActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
