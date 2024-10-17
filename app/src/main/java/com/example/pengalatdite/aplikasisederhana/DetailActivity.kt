@@ -60,7 +60,7 @@ class DetailActivity : AppCompatActivity() {
         val authorPicture = findViewById<ImageView>(R.id.circleImage)
         val authorName = findViewById<TextView>(R.id.authorName)
         val dateTime = findViewById<TextView>(R.id.dateTime)
-        val shareImage = findViewById<ImageView>(R.id.share)
+        val actionShare = findViewById<ImageView>(R.id.action_share)
 
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -119,7 +119,7 @@ class DetailActivity : AppCompatActivity() {
             }
         }
 
-        shareImage.setOnClickListener {
+        actionShare.setOnClickListener {
             val shareIntent = Intent().apply {
                 action = Intent.ACTION_SEND
                 putExtra(Intent.EXTRA_TEXT, newsData?.judulBerita)

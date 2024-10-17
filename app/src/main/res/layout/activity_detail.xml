@@ -176,14 +176,14 @@
                     android:layout_centerVertical="true"
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="16dp"
-                    android:layout_toStartOf="@id/share"
+                    android:layout_toStartOf="@id/action_share"
                     android:textColor="@color/colorBlack"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     tools:text="300" />
 
                 <ImageView
-                    android:id="@+id/share"
+                    android:id="@+id/action_share"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_alignParentEnd="true"
