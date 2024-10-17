@@ -88,11 +88,6 @@ class MainActivity : AppCompatActivity() {
             }
 
             fetchNewsData()
-
-            Log.d(
-                "onLoveImageClicked",
-                "position $position, data likes ${data?.likes}, newsData likes ${newsData[position!!].likes}"
-            )
         }
     }
 }

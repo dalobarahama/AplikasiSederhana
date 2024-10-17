@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.text.Html
-import android.util.Log
 import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
@@ -17,6 +16,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.google.android.material.appbar.CollapsingToolbarLayout
 
 class DetailActivity : AppCompatActivity() {
 
@@ -46,6 +46,7 @@ class DetailActivity : AppCompatActivity() {
         val sbCategories: StringBuilder = StringBuilder()
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        val collapsingToolbar = findViewById<CollapsingToolbarLayout>(R.id.collapsing_toolbar)
         val bannerImage = findViewById<ImageView>(R.id.bannerImage)
         val loveImage = findViewById<ImageView>(R.id.loveImage)
         val newsDescription = findViewById<TextView>(R.id.newsDescription)
@@ -59,6 +60,7 @@ class DetailActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
         toolbar.navigationIcon?.setTint(ContextCompat.getColor(this, R.color.colorWhite))
+        collapsingToolbar.title = newsData?.judulBerita
 
         totalLikes.text = newsData?.likes.toString()
         totalComments.text = newsData?.comments?.size.toString()
@@ -79,13 +81,18 @@ class DetailActivity : AppCompatActivity() {
                 .load(R.drawable.heart)
                 .into(loveImage)
         }
+
         Glide.with(this)
             .asBitmap()
             .load(newsData!!.gambarBerita)
             .into(bannerImage)
 
-        for (category in newsData!!.categories) {
-            sbCategories.append(category).append(", ")
+        newsData?.categories?.forEachIndexed { index, string ->
+            if (index < (newsData?.categories?.size?.minus(1) ?: 0)) {
+                sbCategories.append(string).append(", ")
+            } else {
+                sbCategories.append(string)
+            }
         }
         categories.text = sbCategories
 
@@ -109,7 +116,6 @@ class DetailActivity : AppCompatActivity() {
                     .load(R.drawable.heart_outline)
                     .into(loveImage)
             }
-            Log.d("onLoveImageClicked", "clicked")
         }
 
         rvComments.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
