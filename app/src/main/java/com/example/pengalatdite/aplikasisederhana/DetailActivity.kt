@@ -2,12 +2,15 @@ package com.example.pengalatdite.aplikasisederhana
 
 import android.app.Activity
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.text.Html
 import android.util.Log
 import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
+import android.window.OnBackInvokedDispatcher
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
@@ -105,22 +108,39 @@ class DetailActivity : AppCompatActivity() {
             }
             Log.d("onLoveImageClicked", "clicked")
         }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            onBackInvokedDispatcher.registerOnBackInvokedCallback(
+                OnBackInvokedDispatcher.PRIORITY_DEFAULT
+            ) {
+                goBack()
+            }
+        } else {
+            onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    goBack()
+                }
+            })
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
-                val returnIntent = Intent()
-                returnIntent.putExtra(MainActivity.NEWS_DATA, newsData)
-                returnIntent.putExtra(MainActivity.POSITION, dataPosition)
-
-                setResult(Activity.RESULT_OK, returnIntent)
-                finish()
-
+                goBack()
                 true
             }
 
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    private fun goBack() {
+        val returnIntent = Intent()
+        returnIntent.putExtra(MainActivity.NEWS_DATA, newsData)
+        returnIntent.putExtra(MainActivity.POSITION, dataPosition)
+
+        setResult(Activity.RESULT_OK, returnIntent)
+        finish()
     }
 }
