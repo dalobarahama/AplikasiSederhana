@@ -57,6 +57,10 @@ class DetailActivity : AppCompatActivity() {
         val totalComments = findViewById<TextView>(R.id.totalComments)
         val categories = findViewById<TextView>(R.id.news_categories)
         val rvComments = findViewById<RecyclerView>(R.id.rv_comments)
+        val authorPicture = findViewById<ImageView>(R.id.circleImage)
+        val authorName = findViewById<TextView>(R.id.authorName)
+        val dateTime = findViewById<TextView>(R.id.dateTime)
+        val shareImage = findViewById<ImageView>(R.id.share)
 
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -65,6 +69,8 @@ class DetailActivity : AppCompatActivity() {
         toolbar.navigationIcon?.setTint(ContextCompat.getColor(this, R.color.colorWhite))
         collapsingToolbar.title = newsData?.judulBerita
 
+        authorName.text = newsData?.namaPenulis
+        dateTime.text = newsData?.dateTime
         totalLikes.text = newsData?.likes.toString()
         totalComments.text = newsData?.comments?.size.toString()
         newsDescription.text =
@@ -81,6 +87,7 @@ class DetailActivity : AppCompatActivity() {
         }
 
         utils.loadImage(newsData!!.gambarBerita, bannerImage)
+        utils.loadImage(newsData!!.gambarPenulis, authorPicture)
 
         newsData?.categories?.forEachIndexed { index, string ->
             if (index < (newsData?.categories?.size?.minus(1) ?: 0)) {
@@ -90,6 +97,11 @@ class DetailActivity : AppCompatActivity() {
             }
         }
         categories.text = sbCategories
+
+        rvComments.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        val adapter = CommentsAdapter()
+        rvComments.adapter = adapter
+        adapter.setList(newsData!!.comments!!)
 
         loveImage.setOnClickListener {
             if (!newsData!!.liked) {
@@ -107,11 +119,15 @@ class DetailActivity : AppCompatActivity() {
             }
         }
 
-        rvComments.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        shareImage.setOnClickListener {
+            val shareIntent = Intent().apply {
+                action = Intent.ACTION_SEND
+                putExtra(Intent.EXTRA_TEXT, newsData?.judulBerita)
+                type = "text/plain"
+            }
 
-        val adapter = CommentsAdapter()
-        rvComments.adapter = adapter
-        adapter.setList(newsData!!.comments!!)
+            startActivity(Intent.createChooser(shareIntent, "Share via"))
+        }
 
         setOnBackPressed()
     }
