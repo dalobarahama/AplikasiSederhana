@@ -79,15 +79,9 @@ class Adapter : RecyclerView.Adapter<Adapter.NewsViewHolder>() {
         }
 
         if (!news.liked) {
-            Glide.with(context)
-                .asBitmap()
-                .load(R.drawable.heart_outline)
-                .into(holder.likesImage)
+            Utils(context).loadImage(R.drawable.heart_outline, holder.likesImage)
         } else {
-            Glide.with(context)
-                .asBitmap()
-                .load(R.drawable.heart)
-                .into(holder.likesImage)
+            Utils(context).loadImage(R.drawable.heart, holder.likesImage)
         }
 
         holder.itemView.setOnClickListener {

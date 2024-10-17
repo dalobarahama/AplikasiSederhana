@@ -15,7 +15,6 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.google.android.material.appbar.CollapsingToolbarLayout
 
 class DetailActivity : AppCompatActivity() {
@@ -36,12 +35,16 @@ class DetailActivity : AppCompatActivity() {
     private var newsData: DataNews? = null
     private var dataPosition: Int = 0
 
+    private lateinit var utils: Utils
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
 
         newsData = intent.getParcelableExtra(NEWS_DATA)
         dataPosition = intent.getIntExtra(DATA_POSITION, 0)
+
+        utils = Utils(this)
 
         val sbCategories: StringBuilder = StringBuilder()
 
@@ -70,22 +73,14 @@ class DetailActivity : AppCompatActivity() {
             } else {
                 Html.fromHtml(newsData?.deskripsiBerita)
             }
+
         if (!newsData!!.liked) {
-            Glide.with(this)
-                .asBitmap()
-                .load(R.drawable.heart_outline)
-                .into(loveImage)
+            utils.loadImage(R.drawable.heart_outline, loveImage)
         } else {
-            Glide.with(this)
-                .asBitmap()
-                .load(R.drawable.heart)
-                .into(loveImage)
+            utils.loadImage(R.drawable.heart, loveImage)
         }
 
-        Glide.with(this)
-            .asBitmap()
-            .load(newsData!!.gambarBerita)
-            .into(bannerImage)
+        utils.loadImage(newsData!!.gambarBerita, bannerImage)
 
         newsData?.categories?.forEachIndexed { index, string ->
             if (index < (newsData?.categories?.size?.minus(1) ?: 0)) {
@@ -102,19 +97,13 @@ class DetailActivity : AppCompatActivity() {
                 newsData!!.liked = true
                 totalLikes.text = newsData!!.likes.toString()
 
-                Glide.with(this)
-                    .asBitmap()
-                    .load(R.drawable.heart)
-                    .into(loveImage)
+                utils.loadImage(R.drawable.heart, loveImage)
             } else {
                 newsData!!.likes--
                 newsData!!.liked = false
                 totalLikes.text = newsData!!.likes.toString()
 
-                Glide.with(this)
-                    .asBitmap()
-                    .load(R.drawable.heart_outline)
-                    .into(loveImage)
+                utils.loadImage(R.drawable.heart_outline, loveImage)
             }
         }
 
