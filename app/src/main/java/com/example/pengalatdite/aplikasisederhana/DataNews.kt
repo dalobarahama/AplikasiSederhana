@@ -1,44 +1,25 @@
-package com.example.pengalatdite.aplikasisederhana;
+package com.example.pengalatdite.aplikasisederhana
 
-public class DataNews {
-    public String judulBerita;
-    public String namaPenulis;
-    public String deskripsiBerita;
-    public int gambarBerita;
-    public int gambarPenulis;
-    public boolean isLiked = false;
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
+class DataNews(
+    var judulBerita: String,
+    var deskripsiBerita: String,
+    var namaPenulis: String,
+    var gambarBerita: Int,
+    var gambarPenulis: Int,
+    var dateTime: String,
+    var likes: Int = 0,
+    var comments: List<String>? = null,
+    var categories: List<String>,
+    var liked: Boolean = false,
+) : Parcelable
 
-    public DataNews(String judulBerita, String namaPenulis, String deskripsiBerita, int gambarBerita, int gambarPenulis) {
-        this.deskripsiBerita = deskripsiBerita;
-        this.namaPenulis = namaPenulis;
-        this.gambarBerita = gambarBerita;
-        this.gambarPenulis = gambarPenulis;
-        this.judulBerita = judulBerita;
-    }
-
-    public boolean isLiked() {
-        return isLiked;
-    }
-
-    public void setLiked(boolean liked) {
-        isLiked = liked;
-    }
-
-    public String getDeskripsiBerita() {
-        return deskripsiBerita;
-    }
-
-    public String getNamaPenulis() {
-        return namaPenulis;
-    }
-
-    public int getGambarBerita() {
-        return gambarBerita;
-    }
-
-    public int getGambarPenulis() {
-        return gambarPenulis;
-    }
-
-}
+/**
+ * https://id.pinterest.com/pin/296956169191471520/
+ * https://id.pinterest.com/pin/20266267063390212/
+ * https://id.pinterest.com/pin/593067844707759835/
+ * https://id.pinterest.com/pin/523965737910945211/
+ */
