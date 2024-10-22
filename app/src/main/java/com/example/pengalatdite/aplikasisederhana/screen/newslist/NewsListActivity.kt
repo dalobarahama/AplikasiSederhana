@@ -10,7 +10,7 @@ import com.example.pengalatdite.aplikasisederhana.data.DummyData
 import com.example.pengalatdite.aplikasisederhana.screen.detail.DetailActivity
 import com.example.pengalatdite.aplikasisederhana.screen.profile.ProfileActivity
 
-class MainActivity : AppCompatActivity(), NewsListViewMvcImpl.Listener {
+class NewsListActivity : AppCompatActivity(), NewsListViewMvcImpl.Listener {
 
     companion object {
         const val NEWS_DATA = "newsData"
@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity(), NewsListViewMvcImpl.Listener {
     }
 
     override fun onItemAdapterClicked(news: DataNews, position: Int) {
-        resultLauncher.launch(DetailActivity.newIntent(this@MainActivity, news, position))
+        resultLauncher.launch(DetailActivity.newIntent(this@NewsListActivity, news, position))
     }
 
     override fun onLikesAdapterClicked(position: Int) {
@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity(), NewsListViewMvcImpl.Listener {
     }
 
     override fun onProfilePicClicked() {
-        startActivity(Intent(this@MainActivity, ProfileActivity::class.java))
+        startActivity(Intent(this@NewsListActivity, ProfileActivity::class.java))
     }
 
     override fun setToolbar(toolbar: Toolbar) {

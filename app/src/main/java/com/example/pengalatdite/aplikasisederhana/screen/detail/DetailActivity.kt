@@ -18,7 +18,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.pengalatdite.aplikasisederhana.R
 import com.example.pengalatdite.aplikasisederhana.Utils
 import com.example.pengalatdite.aplikasisederhana.data.DataNews
-import com.example.pengalatdite.aplikasisederhana.screen.newslist.MainActivity
+import com.example.pengalatdite.aplikasisederhana.screen.newslist.NewsListActivity
 import com.google.android.material.appbar.CollapsingToolbarLayout
 
 class DetailActivity : AppCompatActivity() {
@@ -149,8 +149,8 @@ class DetailActivity : AppCompatActivity() {
 
     private fun goBack() {
         val returnIntent = Intent()
-        returnIntent.putExtra(MainActivity.NEWS_DATA, newsData)
-        returnIntent.putExtra(MainActivity.POSITION, dataPosition)
+        returnIntent.putExtra(NewsListActivity.NEWS_DATA, newsData)
+        returnIntent.putExtra(NewsListActivity.POSITION, dataPosition)
 
         setResult(Activity.RESULT_OK, returnIntent)
         finish()

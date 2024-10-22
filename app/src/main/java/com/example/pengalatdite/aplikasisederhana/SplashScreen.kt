@@ -7,7 +7,7 @@ import android.os.Looper
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
-import com.example.pengalatdite.aplikasisederhana.screen.newslist.MainActivity
+import com.example.pengalatdite.aplikasisederhana.screen.newslist.NewsListActivity
 
 class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +21,7 @@ class SplashScreen : AppCompatActivity() {
             .into(gifPlaceholder)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, NewsListActivity::class.java)
             startActivity(intent)
             finish()
         }, 3000)

@@ -25,9 +25,9 @@
         <activity
             android:name=".screen.profile.ProfileActivity"
             android:exported="false"
-            android:parentActivityName=".screen.newslist.MainActivity" />
+            android:parentActivityName=".screen.newslist.NewsListActivity" />
         <activity
-            android:name=".screen.newslist.MainActivity"
+            android:name=".screen.newslist.NewsListActivity"
             android:exported="false" />
     </application>
 
