@@ -2,79 +2,67 @@ package com.example.pengalatdite.aplikasisederhana.screen.newslist
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.ImageView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.pengalatdite.aplikasisederhana.data.DataNews
-import com.example.pengalatdite.aplikasisederhana.screen.detail.DetailActivity
 import com.example.pengalatdite.aplikasisederhana.data.DummyData
+import com.example.pengalatdite.aplikasisederhana.screen.detail.DetailActivity
 import com.example.pengalatdite.aplikasisederhana.screen.profile.ProfileActivity
-import com.example.pengalatdite.aplikasisederhana.R
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), NewsListViewMvcImpl.Listener {
 
     companion object {
         const val NEWS_DATA = "newsData"
         const val POSITION = "position"
     }
 
-    private lateinit var adapter: Adapter
+    private lateinit var viewMvc: NewsListViewMvc
+
     private lateinit var newsData: List<DataNews>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+
+        viewMvc = NewsListViewMvcImpl(layoutInflater, null)
 
         newsData = DummyData.getData()
 
-        val recyclerView: RecyclerView = findViewById(R.id.recylerView)
-        recyclerView.layoutManager =
-            LinearLayoutManager(
-                this,
-                RecyclerView.VERTICAL,
-                false
-            )
-
-        adapter = Adapter()
-        recyclerView.adapter = adapter
-        adapter.setOnClickRecyclerAdapter(object : Adapter.OnClickAdapter {
-            override fun onItemClicked(news: DataNews, position: Int) {
-                resultLauncher.launch(DetailActivity.newIntent(this@MainActivity, news, position))
-            }
-
-            override fun onLikesClicked(position: Int) {
-                if (!newsData[position].liked) {
-                    newsData[position].liked = true
-                    newsData[position].likes++
-                } else {
-                    newsData[position].liked = false
-                    newsData[position].likes--
-                }
-            }
-        })
-
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
-        val profilePic = findViewById<ImageView>(R.id.toolbar_profile)
-
-        setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayShowTitleEnabled(true)
-
-        profilePic.setOnClickListener {
-            startActivity(Intent(this@MainActivity, ProfileActivity::class.java))
-        }
+        setContentView(viewMvc.getRootView())
     }
 
     override fun onStart() {
         super.onStart()
-        fetchNewsData()
+        viewMvc.registerListener(this)
+        viewMvc.setNewsData(newsData)
     }
 
-    private fun fetchNewsData() {
-        adapter.clearList()
-        adapter.setList(newsData)
+    override fun onStop() {
+        viewMvc.unregisterListener(this)
+        super.onStop()
+    }
+
+    override fun onItemAdapterClicked(news: DataNews, position: Int) {
+        resultLauncher.launch(DetailActivity.newIntent(this@MainActivity, news, position))
+    }
+
+    override fun onLikesAdapterClicked(position: Int) {
+        if (!newsData[position].liked) {
+            newsData[position].liked = true
+            newsData[position].likes++
+        } else {
+            newsData[position].liked = false
+            newsData[position].likes--
+        }
+    }
+
+    override fun onProfilePicClicked() {
+        startActivity(Intent(this@MainActivity, ProfileActivity::class.java))
+    }
+
+    override fun setToolbar(toolbar: Toolbar) {
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(true)
     }
 
     private val resultLauncher = registerForActivityResult(
@@ -89,7 +77,9 @@ class MainActivity : AppCompatActivity() {
                 (if (index == position) data else dataNews)!!
             }
 
-            fetchNewsData()
+            viewMvc.setNewsData(newsData)
         }
     }
+
+
 }
