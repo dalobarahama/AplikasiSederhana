@@ -1,5 +1,6 @@
 package com.example.pengalatdite.aplikasisederhana.screen.detail
 
+import android.app.Activity
 import android.os.Build
 import android.text.Html
 import android.view.LayoutInflater
@@ -7,7 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pengalatdite.aplikasisederhana.R
@@ -30,6 +33,7 @@ class DetailActivityViewMvcImpl(layoutInflater: LayoutInflater, parent: ViewGrou
 
     private val utils = Utils(getRootView().context)
 
+    private val toolbar: Toolbar
     private val collapsingToolbar: CollapsingToolbarLayout
     private val bannerImage: ImageView
     private val loveImage: ImageView
@@ -48,7 +52,7 @@ class DetailActivityViewMvcImpl(layoutInflater: LayoutInflater, parent: ViewGrou
     private lateinit var dataNews: DataNews
 
     init {
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        toolbar = findViewById<Toolbar>(R.id.toolbar)
         collapsingToolbar = findViewById(R.id.collapsing_toolbar)
         bannerImage = findViewById(R.id.bannerImage)
         loveImage = findViewById(R.id.loveImage)
@@ -61,8 +65,6 @@ class DetailActivityViewMvcImpl(layoutInflater: LayoutInflater, parent: ViewGrou
         authorName = findViewById(R.id.authorName)
         dateTime = findViewById(R.id.dateTime)
         actionShare = findViewById(R.id.action_share)
-
-        getListener()?.setToolbar(toolbar)
 
         rvComments.layoutManager = LinearLayoutManager(
             getRootView().context,
@@ -145,6 +147,8 @@ class DetailActivityViewMvcImpl(layoutInflater: LayoutInflater, parent: ViewGrou
             }
         }
         categories.text = sbCategories
+
+        getListener()?.setToolbar(toolbar)
     }
 
     private fun <T : View> findViewById(id: Int): T {
