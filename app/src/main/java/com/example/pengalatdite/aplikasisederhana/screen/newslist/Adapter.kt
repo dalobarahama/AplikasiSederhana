@@ -1,4 +1,4 @@
-package com.example.pengalatdite.aplikasisederhana
+package com.example.pengalatdite.aplikasisederhana.screen.newslist
 
 import android.content.Context
 import android.text.Html
@@ -9,6 +9,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.pengalatdite.aplikasisederhana.R
+import com.example.pengalatdite.aplikasisederhana.Utils
+import com.example.pengalatdite.aplikasisederhana.data.DataNews
 import de.hdodenhof.circleimageview.CircleImageView
 
 class Adapter : RecyclerView.Adapter<Adapter.NewsViewHolder>() {

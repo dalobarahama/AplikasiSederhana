@@ -1,4 +1,4 @@
-package com.example.pengalatdite.aplikasisederhana
+package com.example.pengalatdite.aplikasisederhana.screen.newslist
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,6 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.pengalatdite.aplikasisederhana.data.DataNews
+import com.example.pengalatdite.aplikasisederhana.screen.detail.DetailActivity
+import com.example.pengalatdite.aplikasisederhana.data.DummyData
+import com.example.pengalatdite.aplikasisederhana.screen.profile.ProfileActivity
+import com.example.pengalatdite.aplikasisederhana.R
 
 class MainActivity : AppCompatActivity() {
 

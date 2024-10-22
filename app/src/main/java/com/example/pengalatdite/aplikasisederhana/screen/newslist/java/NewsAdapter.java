@@ -1,4 +1,4 @@
-package com.example.pengalatdite.aplikasisederhana.screen.newslist;
+package com.example.pengalatdite.aplikasisederhana.screen.newslist.java;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -7,9 +7,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.pengalatdite.aplikasisederhana.DataNews;
-import com.example.pengalatdite.aplikasisederhana.screen.newslist.newslistitem.ItemViewMvc;
-import com.example.pengalatdite.aplikasisederhana.screen.newslist.newslistitem.ItemViewMvcImpl;
+import com.example.pengalatdite.aplikasisederhana.data.DataNews;
+import com.example.pengalatdite.aplikasisederhana.screen.newslist.java.newslistitem.ItemViewMvc;
+import com.example.pengalatdite.aplikasisederhana.screen.newslist.java.newslistitem.ItemViewMvcImpl;
 
 import java.util.ArrayList;
 import java.util.List;

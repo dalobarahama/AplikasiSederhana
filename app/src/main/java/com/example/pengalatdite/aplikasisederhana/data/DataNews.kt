@@ -1,4 +1,4 @@
-package com.example.pengalatdite.aplikasisederhana
+package com.example.pengalatdite.aplikasisederhana.data
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

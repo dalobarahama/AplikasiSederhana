@@ -1,4 +1,4 @@
-package com.example.pengalatdite.aplikasisederhana.screen.newslist;
+package com.example.pengalatdite.aplikasisederhana.screen.newslist.java;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.pengalatdite.aplikasisederhana.DataNews;
+import com.example.pengalatdite.aplikasisederhana.data.DataNews;
 import com.example.pengalatdite.aplikasisederhana.R;
 import com.example.pengalatdite.aplikasisederhana.screen.common.BaseViewMvc;
 

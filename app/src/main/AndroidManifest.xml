@@ -19,15 +19,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DetailActivity"
+            android:name=".screen.detail.DetailActivity"
             android:exported="false"
             android:label="@string/title_activity_detail" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".screen.profile.ProfileActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".screen.newslist.MainActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name=".screen.newslist.MainActivity"
             android:exported="false" />
     </application>
 

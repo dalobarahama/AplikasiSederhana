@@ -1,4 +1,4 @@
-package com.example.pengalatdite.aplikasisederhana
+package com.example.pengalatdite.aplikasisederhana.screen.detail
 
 import android.app.Activity
 import android.content.Intent
@@ -15,6 +15,10 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.pengalatdite.aplikasisederhana.R
+import com.example.pengalatdite.aplikasisederhana.Utils
+import com.example.pengalatdite.aplikasisederhana.data.DataNews
+import com.example.pengalatdite.aplikasisederhana.screen.newslist.MainActivity
 import com.google.android.material.appbar.CollapsingToolbarLayout
 
 class DetailActivity : AppCompatActivity() {

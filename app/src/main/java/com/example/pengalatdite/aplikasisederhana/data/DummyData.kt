@@ -1,5 +1,6 @@
-package com.example.pengalatdite.aplikasisederhana
+package com.example.pengalatdite.aplikasisederhana.data
 
+import com.example.pengalatdite.aplikasisederhana.R
 import kotlin.random.Random
 
 object DummyData {

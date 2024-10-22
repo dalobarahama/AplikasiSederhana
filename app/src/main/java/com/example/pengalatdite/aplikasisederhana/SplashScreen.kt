@@ -7,6 +7,7 @@ import android.os.Looper
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.example.pengalatdite.aplikasisederhana.screen.newslist.MainActivity
 
 class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,8 +1,8 @@
-package com.example.pengalatdite.aplikasisederhana.screen.newslist;
+package com.example.pengalatdite.aplikasisederhana.screen.newslist.java;
 
 import android.view.View;
 
-import com.example.pengalatdite.aplikasisederhana.DataNews;
+import com.example.pengalatdite.aplikasisederhana.data.DataNews;
 
 import java.util.List;
 

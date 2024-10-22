@@ -1,10 +1,12 @@
-package com.example.pengalatdite.aplikasisederhana
+package com.example.pengalatdite.aplikasisederhana.screen.detail
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.pengalatdite.aplikasisederhana.R
+import com.example.pengalatdite.aplikasisederhana.data.DummyData
 
 class CommentsAdapter : RecyclerView.Adapter<CommentsAdapter.CommentViewHolder>() {
 
