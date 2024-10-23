@@ -76,20 +76,7 @@ class DetailActivityViewMvcImpl(layoutInflater: LayoutInflater, parent: ViewGrou
         }
 
         loveImage.setOnClickListener {
-            if (!dataNews.liked) {
-                dataNews.likes++
-                dataNews.liked = true
-
-                totalLikes.text = dataNews.likes.toString()
-                utils.loadImage(R.drawable.heart, loveImage)
-            } else {
-                dataNews.likes--
-                dataNews.liked = false
-
-                totalLikes.text = dataNews.likes.toString()
-                utils.loadImage(R.drawable.heart_outline, loveImage)
-            }
-
+            updateNewsDataLikes()
             getListener()?.onLoveImageClicked(dataNews)
         }
     }
@@ -155,6 +142,22 @@ class DetailActivityViewMvcImpl(layoutInflater: LayoutInflater, parent: ViewGrou
         } else {
             Html.fromHtml(dataNews.deskripsiBerita)
         }
+
+    private fun updateNewsDataLikes() {
+        if (!dataNews.liked) {
+            dataNews.likes++
+            dataNews.liked = true
+
+            totalLikes.text = dataNews.likes.toString()
+            utils.loadImage(R.drawable.heart, loveImage)
+        } else {
+            dataNews.likes--
+            dataNews.liked = false
+
+            totalLikes.text = dataNews.likes.toString()
+            utils.loadImage(R.drawable.heart_outline, loveImage)
+        }
+    }
 
     private fun <T : View> findViewById(id: Int): T {
         return getRootView().findViewById(id)
