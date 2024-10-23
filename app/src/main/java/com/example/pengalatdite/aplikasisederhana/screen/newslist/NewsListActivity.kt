@@ -34,7 +34,7 @@ class NewsListActivity : AppCompatActivity(), NewsListViewMvcImpl.Listener {
     override fun onStart() {
         super.onStart()
         viewMvc.registerListener(this)
-        viewMvc.setNewsData(newsData)
+        viewMvc.bindData(newsData)
     }
 
     override fun onStop() {
@@ -77,7 +77,7 @@ class NewsListActivity : AppCompatActivity(), NewsListViewMvcImpl.Listener {
                 (if (index == position) data else dataNews)!!
             }
 
-            viewMvc.setNewsData(newsData)
+            viewMvc.bindData(newsData)
         }
     }
 

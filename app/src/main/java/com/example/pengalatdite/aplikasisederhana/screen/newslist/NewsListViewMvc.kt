@@ -6,7 +6,7 @@ import com.example.pengalatdite.aplikasisederhana.screen.newslist.NewsListViewMv
 
 interface NewsListViewMvc {
     fun getRootView(): View
-    fun setNewsData(list: List<DataNews>)
+    fun bindData(list: List<DataNews>)
     fun registerListener(listener: Listener)
     fun unregisterListener(listener: Listener)
 }

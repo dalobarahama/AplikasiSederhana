@@ -24,13 +24,12 @@ class NewsListViewMvcImpl(layoutInflater: LayoutInflater, parent: ViewGroup?) : 
     private val rootView = layoutInflater.inflate(R.layout.activity_main, parent, false)
 
     private var adapter: Adapter
+    private val toolbar: Toolbar
 
     init {
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        toolbar = findViewById(R.id.toolbar)
         val profilePic = findViewById<ImageView>(R.id.toolbar_profile)
         val recyclerView = findViewById<RecyclerView>(R.id.recylerView)
-
-        getListener()?.setToolbar(toolbar)
 
         profilePic.setOnClickListener {
             getListener()?.onProfilePicClicked()
@@ -63,8 +62,9 @@ class NewsListViewMvcImpl(layoutInflater: LayoutInflater, parent: ViewGroup?) : 
         return rootView
     }
 
-    override fun setNewsData(list: List<DataNews>) {
+    override fun bindData(list: List<DataNews>) {
         adapter.setList(list)
+        getListener()?.setToolbar(toolbar)
     }
 
     override fun registerListener(listener: Listener) {
