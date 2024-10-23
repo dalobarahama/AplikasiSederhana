@@ -102,7 +102,7 @@ class DetailActivity : AppCompatActivity(), DetailActivityViewMvcImpl.Listener {
         finish()
     }
 
-    // TODO onbackpresse not working on api level 34
+    // TODO onbackpressed not working on api level 34
     private fun setOnBackPressed() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             onBackInvokedDispatcher.registerOnBackInvokedCallback(

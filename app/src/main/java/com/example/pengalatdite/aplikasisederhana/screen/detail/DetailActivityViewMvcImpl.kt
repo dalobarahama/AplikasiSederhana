@@ -1,6 +1,5 @@
 package com.example.pengalatdite.aplikasisederhana.screen.detail
 
-import android.app.Activity
 import android.os.Build
 import android.text.Html
 import android.view.LayoutInflater
@@ -8,9 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pengalatdite.aplikasisederhana.R
@@ -52,7 +49,7 @@ class DetailActivityViewMvcImpl(layoutInflater: LayoutInflater, parent: ViewGrou
     private lateinit var dataNews: DataNews
 
     init {
-        toolbar = findViewById<Toolbar>(R.id.toolbar)
+        toolbar = findViewById(R.id.toolbar)
         collapsingToolbar = findViewById(R.id.collapsing_toolbar)
         bannerImage = findViewById(R.id.bannerImage)
         loveImage = findViewById(R.id.loveImage)
@@ -116,29 +113,23 @@ class DetailActivityViewMvcImpl(layoutInflater: LayoutInflater, parent: ViewGrou
     override fun bindData(dataNews: DataNews) {
         this.dataNews = dataNews
 
-        val sbCategories: StringBuilder = StringBuilder()
-
         collapsingToolbar.title = dataNews.judulBerita
         authorName.text = dataNews.namaPenulis
         dateTime.text = dataNews.dateTime
         totalLikes.text = dataNews.likes.toString()
         totalComments.text = dataNews.comments?.size.toString()
-        newsDescription.text =
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                Html.fromHtml(dataNews.deskripsiBerita, Html.FROM_HTML_MODE_COMPACT)
-            } else {
-                Html.fromHtml(dataNews.deskripsiBerita)
-            }
+        newsDescription.text = setDescription(dataNews)
+        categories.text = setCategories(dataNews)
 
-        if (!dataNews.liked) {
-            utils.loadImage(R.drawable.heart_outline, loveImage)
-        } else {
-            utils.loadImage(R.drawable.heart, loveImage)
-        }
-
+        utils.loadImage(setLoveImage(dataNews), loveImage)
         utils.loadImage(dataNews.gambarBerita, bannerImage)
         utils.loadImage(dataNews.gambarPenulis, authorPicture)
 
+        getListener()?.setToolbar(toolbar)
+    }
+
+    private fun setCategories(dataNews: DataNews): String {
+        val sbCategories: StringBuilder = StringBuilder()
         dataNews.categories.forEachIndexed { index, string ->
             if (index < dataNews.categories.size.minus(1)) {
                 sbCategories.append(string).append(", ")
@@ -146,10 +137,24 @@ class DetailActivityViewMvcImpl(layoutInflater: LayoutInflater, parent: ViewGrou
                 sbCategories.append(string)
             }
         }
-        categories.text = sbCategories
 
-        getListener()?.setToolbar(toolbar)
+        return sbCategories.toString()
     }
+
+    private fun setLoveImage(dataNews: DataNews): Int {
+        return if (!dataNews.liked) {
+            R.drawable.heart_outline
+        } else {
+            R.drawable.heart
+        }
+    }
+
+    private fun setDescription(dataNews: DataNews): CharSequence? =
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            Html.fromHtml(dataNews.deskripsiBerita, Html.FROM_HTML_MODE_COMPACT)
+        } else {
+            Html.fromHtml(dataNews.deskripsiBerita)
+        }
 
     private fun <T : View> findViewById(id: Int): T {
         return getRootView().findViewById(id)
