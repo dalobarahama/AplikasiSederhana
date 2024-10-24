@@ -1,4 +1,4 @@
-package com.example.pengalatdite.aplikasisederhana
+package com.example.pengalatdite.aplikasisederhana.screen
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.os.Looper
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.example.pengalatdite.aplikasisederhana.R
 import com.example.pengalatdite.aplikasisederhana.screen.newslist.NewsListActivity
 
 class SplashScreen : AppCompatActivity() {
